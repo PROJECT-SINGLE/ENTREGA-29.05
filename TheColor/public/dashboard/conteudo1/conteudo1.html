@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+    <link rel="stylesheet" href="../style_aulas.css" />
+
+    <title>TheColors צְבָעִים </title>
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+
+        <div class="shape orange-1"></div>
+        <div class="shape orange-2"></div>
+        <div class="shape orange-3"></div>
+        <div class="shape orange-4"></div>
+        <div class="shape orange-5"></div>
+
+       
+        <img src="paleta.png" class="paint-left" alt="Pintura">
+        <img src="pantone.png" class="brush-right" alt="Pincéis">
+
+
+        <div class="hero-content">
+
+            <h1 class="title">O QUE É COR?</h1>
+
+            <p class="subtitle">
+                Explore o universo das cores, suas propriedades físicas,
+                percepção visual e aplicações na arte, design e tecnologia.
+            </p>
+
+            <button class="btn-start" onclick="scrollToContent()">
+                COMEÇAR
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="conteudo">
+        <div class="content-wrapper">
+            <div class="top-content">
+
+
+                <div class="left-side">
+
+
+                    <!-- RGB -->
+                    <div class="rgb-container">
+
+                        <div class="circle red"></div>
+                        <div class="circle green"></div>
+                        <div class="circle blue"></div>
+
+                    </div>
+
+                    <div class="image-box">
+
+                        <img id="rgb" src="piiscico3.png">
+
+                    </div>
+                    <br>
+                    <div class="image-box">
+
+                        <img src="Oqueécor.1.JPG">
+
+                    </div>
+
+                </div>
+
+                <div class="right-side">
+
+                    <h2 class="main-title">
+                        O QUE É<br>
+                        COR
+                    </h2>
+
+                    <h3 class="intro-title">
+                        Introdução
+                    </h3>
+
+                    <p class="text">
+                        A cor é uma percepção visual produzida pela ação da luz sobre os olhos.
+                        Ela está diretamente relacionada às ondas eletromagnéticas visíveis e
+                        desempenha papel fundamental na comunicação visual, arte, design e tecnologia.
+                        <br><br>
+                        Cada cor possui características próprias e pode transmitir emoções,
+                        sensações e significados diferentes. O estudo das cores envolve aspectos
+                        físicos, psicológicos e culturais.
+                        <br>
+                        Os processos para o resultado de qualquer sensação cromática nesta tríade específica de
+                        cores-pigmento são dois: a mistura óptica das luzes refletidas por pequenos pontos colocados
+                        muito próximos uns dos outros, como utilizavam os impressionistas pontilhistas, e a mistura
+                        dessas mesmas luzes coloridas refletidas pelos pigmentos, colocados em discos rotativos. No caso
+                        das cores-pigmento primárias opacas (vermelho, amarelo e azul), o preto (que teoricamente é o
+                        resultado da mistura das três) só ocorreria se o amarelo absorvesse completamente as outras
+                        faixas coloridas da luz branca incidente e refletisse somente a soma do verde e do vermelho (G +
+                        R), e o mesmo acontecesse com o vermelho e com o azul.
+                    </p>
+                    <br>
+
+                </div>
+
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Cor Luz</h3>
+                    <p>
+                        A cor-luz é formada pela emissão direta da luz,
+                        utilizando principalmente o sistema RGB
+                        (vermelho, verde e azul).
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Cor Pigmento</h3>
+                    <p>
+                        A cor pigmento está relacionada à absorção e
+                        reflexão da luz em tintas, papéis e objetos físicos.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Espectro Visível</h3>
+                    <p>
+                        O olho humano percebe apenas uma pequena faixa
+                        do espectro eletromagnético chamada luz visível.
+                    </p>
+                </div>
+
+            </div>
+            <br>
+
+            <div class="right-side">
+
+                <h3 class="intro-title">
+                    Atividade
+                </h3>
+
+                <p class="text">
+                    CÍRCULO CROMÁTICO EM COR-PIGMENTO TRANSPARENTE.
+
+                    Objetivo: construir um instrumento para se pensar os esquemas de combinações de cores possíveis, um
+                    Círculo Cromático. Será a partir das cores-pigmento transparentes, pois são as cores que se consegue
+                    em tinta.
+                    Material: folha para guache, tintas guache nas cores magenta, ciano, amarelo e preto. Descrição:
+                    desenhar um círculo com doze cores, primárias, secundárias e terciárias em cores- -pigmento
+                    transparentes, dispostas segundo a teoria
+                    <br><br>
+                </p>
+                <br>
+
+                 <img src="atividade.png"
+                 style="display: block; margin: 0 auto; width: 600px;">
+
+            </div>
+
+
+            <img onclick="voltar()" class="seta" src="paletadecores.png">
+            <script>
+                function voltar() {
+                    window.location.href = "../conteudo.html";
+                }
+            </script>
+        </div>
+
+
+
+    </section>
+
+
+    <footer>
+        <p>
+            TheColor: Porque o maior pintor do mundo está pintando a sua história.
+        </p>
+    </footer>
+
+
+    <script>
+
+        // Scroll suave
+        function scrollToContent() {
+            document.getElementById("conteudo")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+        // Efeito no botão
+        const btn = document.querySelector(".btn-start");
+
+        btn.addEventListener("mouseenter", () => {
+            btn.style.transform = "scale(1.05)";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+        });
+
+
+        const img = document.getElementById("rgb");
+        img.style.opacity = "0.7"; // 50% transparente
+    </script>
+
+</body>
+
+</html>

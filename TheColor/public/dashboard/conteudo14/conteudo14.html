@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+    <link rel="stylesheet" href="../style_aulas.css" />
+
+    <title>TheColors צְבָעִים </title>
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+
+        <div class="shape orange-1"></div>
+        <div class="shape orange-2"></div>
+        <div class="shape orange-3"></div>
+        <div class="shape orange-4"></div>
+        <div class="shape orange-5"></div>
+
+        
+        <img src="historia.1.jpg" class="paint-left" alt="Pintura">
+        <img src="pantone.png" class="brush-right" alt="Pincéis">
+
+
+        <div class="hero-content">
+
+            <h1 class="title">MUTAÇÃO<br>CROMÁTICA</h1>
+
+            <p class="subtitle">
+                Explore o universo das cores, suas propriedades físicas,
+                percepção visual e aplicações na arte, design e tecnologia.
+            </p>
+
+            <button class="btn-start" onclick="scrollToContent()">
+                COMEÇAR
+            </button>
+
+        </div>
+
+    </section>
+
+    
+
+    <section class="content-section" id="conteudo">
+        <div class="content-wrapper">
+            <div class="top-content">
+
+
+                <div class="left-side">
+
+
+                    <!-- RGB -->
+                    <div class="rgb-container">
+
+                        <div class="circle red"></div>
+                        <div class="circle green"></div>
+                        <div class="circle blue"></div>
+
+                    </div>
+
+                    <div class="image-box">
+
+                        <img id="rgb" src="cromo1.png">
+
+                    </div>
+                    <br>
+
+                </div>
+
+                <div class="right-side">
+
+                    <h2 class="main-title">
+                        <br>
+                        MUTAÇÃO<br>
+                        CROMÁTICA
+                    </h2>
+
+                    <h3 class="intro-title">
+                        Introdução
+                    </h3>
+
+                    <p class="text">
+                        Por mutações cromáticas englobamos todas essas manifestações das cores fisiológicas, que
+                        acontecem devido aos contrastes simultâneos, sucessivos ou mistos, ou seja, fenômenos onde
+                        fisiologicamente há alterações das cores (induzidas) na presença de outras (indutoras).
+                        Apesar das várias críticas a respeito de seus experimentos ópticos, as conclusões de Newton
+                        a respeito das cores não sofreram grandes alterações. A partir dessas conclusões, sabe-se que a
+                        reflexão de certos raios luminosos pode atingir o seu máximo, isto é, o objeto colorido pode
+                        atingir o seu pico de saturação. Quando isso acontece, a retina também é sensibilizada no seu
+                        máximo, exaltando as cores complementares que estavam submersas na periferia do objeto.
+
+                    </p>
+                    <br>
+
+                </div>
+
+            </div>
+
+
+            <p class="text">Essas cores complementares fazem parte dos fenômenos que são, na sua essência, opostos à
+                cor indutora (cor de contraste, mutação cromática e cor inexistente, chamadas cores induzidas)
+                e aparecem constantemente na natureza. Raramente os percebemos porque nossos olhos estão
+                constantemente submetidos à função reguladora e interpretadora do cérebro.</p>
+
+            <br>
+            <img src="cromo2.png" style="display: block; margin: 0 auto; width: 600px;">
+            <br>
+            <img src="cromo3.png" style="display: block; margin: 0 auto; width: 600px;">
+
+
+
+            <!-- Cards -->
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Leonardo da Vinci</h3>
+                    <p>
+                        Viveu entre 1452 e 1519. Foi uma das principais
+                        figuras do chamado Renascimento italiano e produziu obras que são
+                        bastante conhecidas e imitadas, como a “Monalisa”
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Michelangelo (Miguel Ângelo)</h3>
+                    <p>
+                        Foi o gênio máximo do Renascimento. Embora famoso pela pintura na Capela Sistina, sua verdadeira
+                        paixão era a escultura. Ele considerava a escultura a forma de arte mais nobre
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Vincent van Gogh</h3>
+                    <p>
+                        Foi um dos maiores expoentes do pós-impressionismo, mas viveu uma vida marcada por dificuldades
+                        financeiras e psicológicas. Ele começou a pintar apenas aos 27 anos,
+                    </p>
+                </div>
+
+            </div>
+            <br>
+
+
+
+            <br><br>
+            <div class="right-side">
+
+                <h3 class="intro-title">
+                    Atividade
+                </h3>
+
+                <p class="text">
+                    CRIE SUA MUTAÇÃO<br>
+                    Objetivo: Busque algo que você possa utilizar da mutação cromática na prática, ou seja, busque um
+                    material
+                    uma pintura ou ate mesmo um objeto para que através da COR ou ILUMINAÇÃO você possa fazer uma
+                    alteração.
+                    Faça alteração das cores originais para criar efeitos visuais diferentes, mudar emoções da cena ou
+                    transmitir outra mensagem visual.
+                    <br><br>
+                </p>
+                <br>
+
+                <img src="atividade.png" style="display: block; margin: 0 auto; width: 600px;">
+
+            </div>
+
+
+            <img onclick="voltar()" class="seta" src="paletadecores.png">
+            <script>
+                function voltar() {
+                    window.location.href = "../conteudo.html";
+                }
+            </script>
+
+
+
+
+    </section>
+
+
+    <footer>
+        <p>
+            TheColor: Porque o maior pintor do mundo está pintando a sua história.
+        </p>
+    </footer>
+
+
+    <script>
+
+        // Scroll suave
+        function scrollToContent() {
+            document.getElementById("conteudo")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+        // Efeito no botão
+        const btn = document.querySelector(".btn-start");
+
+        btn.addEventListener("mouseenter", () => {
+            btn.style.transform = "scale(1.05)";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+        });
+
+    </script>
+
+</body>
+
+</html>

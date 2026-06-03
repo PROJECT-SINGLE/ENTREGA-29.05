@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Paletas de Cores</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .topo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 14px 25px;
+            border: none;
+            background: #111;
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cor {
+            height: 90px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px;
+        }
+
+        .heart {
+            font-size: 25px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.2s;
+        }
+
+        .heart:hover {
+            transform: scale(1.2);
+        }
+
+        .likes {
+            font-size: 18px;
+            color: #444;
+        }
+
+        .copiado {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+
+            background: #111;
+            color: white;
+
+            padding: 12px 20px;
+            border-radius: 10px;
+
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .mostrar {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎨 Color Palette Generator</h1>
+
+    <div class="topo">
+        <button onclick="criarPaleta()">
+            Gerar Nova Paleta
+        </button>
+    </div>
+
+    <div class="container" id="container">
+
+    </div>
+
+    <div class="copiado" id="copiado">
+        Cor copiada!
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    const container = document.getElementById("container");
+
+    function gerarCor() {
+
+        let letras = "0123456789ABCDEF";
+
+        let cor = "#";
+
+        for (let i = 0; i < 6; i++) {
+
+            cor += letras[Math.floor(Math.random() * 16)];
+        }
+
+        return cor;
+    }
+
+    function mostrarMensagem() {
+
+        copiado.classList.add("mostrar");
+
+        setTimeout(() => {
+
+            copiado.classList.remove("mostrar");
+
+        }, 1500);
+    }
+
+    function copiarCor(cor) {
+
+        navigator.clipboard.writeText(cor);
+
+        mostrarMensagem();
+    }
+
+    function curtir(botao) {
+
+        let likes = botao.nextElementSibling;
+
+        let total = Number(likes.innerHTML);
+
+        total++;
+
+        likes.innerHTML = total;
+
+        botao.innerHTML = "❤️";
+    }
+
+    function criarPaleta() {
+
+        let htmlCores = "";
+
+        for (let i = 0; i < 4; i++) {
+
+            let cor = gerarCor();
+
+            htmlCores += `
+            
+                <div 
+                    class="cor"
+                    style="background:${cor}"
+                    onclick="copiarCor('${cor}')"
+                >
+                    ${cor}
+                </div>
+            
+            `;
+        }
+
+        container.innerHTML += `
+        
+            <div class="card">
+
+                ${htmlCores}
+
+                <div class="footer">
+
+                    <div>
+                        <span 
+                            class="heart"
+                            onclick="curtir(this)"
+                        >
+                            🤍
+                        </span>
+
+                        <span class="likes">
+                            0
+                        </span>
+                    </div>
+
+                    <div>
+                        Hoje
+                    </div>
+
+                </div>
+
+            </div>
+        
+        `;
+    }
+
+    // cria várias ao abrir
+    for (let i = 0; i < 6; i++) {
+
+        criarPaleta();
+    }
+
+</script>

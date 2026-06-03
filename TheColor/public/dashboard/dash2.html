@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TheColors צְבָעִים |</title>
+
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+    <link rel="stylesheet" href="./../css/dashboards.css">
+
+    <script src="cadastro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/sessao.js"></script>
+
+    <tbody id="rankingTable"></tbody>
+
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #7c8393;
+            color: white;
+            min-height: 100vh;
+            transition: 0.5s;
+        }
+
+        /* HEADER */
+
+        header {
+            text-align: center;
+            padding: 30px;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            font-family: "Trebuchet MS", sans-serif;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            opacity: 0.8;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* DASHBOARD */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #ee7432;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(191, 182, 182, 0.4);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .card p {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* QUIZ */
+
+        .quiz-container {
+            margin-top: 40px;
+            background: #f3f4f6;
+            color: #111;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(18, 11, 152, 0.5);
+        }
+
+        .top-quiz {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .progress {
+            font-weight: bold;
+        }
+
+        .timer {
+            background: #111827;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .question {
+            font-size: 2rem;
+            font-family: 'Orbitron';
+            margin-bottom: 30px;
+            color: #2f53a0;
+        }
+
+        .answers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .answers button {
+            border: none;
+            padding: 20px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            background: #e5e7eb;
+        }
+
+        .answers button:hover {
+            transform: scale(1.03);
+            background: #d1d5db;
+        }
+
+        .correct {
+            background: #16a34a !important;
+            color: white;
+        }
+
+        .wrong {
+            background: #dc2626 !important;
+            color: white;
+        }
+
+        /* SCORE */
+
+        .score-area {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* RESULT */
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .result h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .result p {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* RANKING */
+
+        .ranking {
+            margin-top: 30px;
+        }
+
+        .ranking h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        th {
+            background: #7c3aed;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            background: #112828;
+            padding: 15px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) td {
+            background: #c99c1d;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:700px) {
+
+            .question {
+                font-size: 1.4rem;
+            }
+
+            .answers {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body onload="validarSessao(); init();">
+
+
+    <div class="janela">
+
+        <div class="header-left dash-header">
+
+            <h1>TheColors <br>
+                צְבָעִים </h1>
+
+            <div class="hello">
+                <h3>
+                    Olá, <span id="b_usuario"></span>
+                    <br>preparado para<br> JOGAR?
+                </h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3>Home</h3>
+                </a>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <h3>Quiz</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Mural</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div style="margin-left: 250px;">
+        <header>
+            <h1>Colorpedia Quiz</h1>
+            <p>Descubra o poder das cores</p>
+        </header>
+
+        <div class="container">
+
+            <!-- DASHBOARD -->
+            <div class="dashboard">
+
+                <div class="card">
+                    <h2>Melhor Pontuação</h2>
+                    <p id="bestScore">0</p>
+                </div>
+
+                <div class="card">
+                    <h2>Quizzes Respondidos</h2>
+                    <p id="quizCount">0</p>
+                </div>
+
+                <div class="card">
+                    <h2>Acertos</h2>
+                    <p id="hits">0</p>
+                </div>
+
+            </div>
+
+            <!-- QUIZ -->
+            <div class="quiz-container">
+
+                <div class="top-quiz">
+                    <div class="progress" id="progress">
+                        Pergunta 1 de 5
+                    </div>
+
+                    <div class="timer" id="timer">
+                        15
+                    </div>
+                </div>
+
+                <div class="question" id="question"></div>
+
+                <div class="answers" id="answers"></div>
+
+                <div class="score-area">
+                    Pontos: <span id="score">0</span>
+                </div>
+
+                <!-- RESULTADO -->
+                <div class="result" id="result">
+                    <h2>Quiz Finalizado</h2>
+
+                    <p id="finalScore"></p>
+
+                    <p id="rankingText"></p>
+
+                    <button onclick="restartQuiz()" style="
+                margin-top:20px;
+                padding:15px 30px;
+                border:none;
+                border-radius:15px;
+                background:#7c3aed;
+                color:white;
+                font-weight:bold;
+                cursor:pointer;
+            ">
+                        Jogar Novamente
+                    </button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+        <div class="result-chart-container" style="
+            margin:30px auto;
+            background:#ffffff;
+            padding:20px;
+            border-radius:10px;
+            width:60%;
+            max-width:600px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+
+            <h2 style="text-align:center; color:#111827;">Seu Resultado no Quiz</h2>
+
+            <canvas id="resultChart"></canvas>
+
+            <p id="resultText" style="text-align:center; margin-top:15px; font-weight:bold;"></p>
+
+        </div>
+
+        <div class="ranking" style="margin-left: 10px;">
+
+            <h2>Ranking Geral</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Pontuação</th>
+                    </tr>
+                </thead>
+
+                <tbody id="rankingTable"></tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <footer>
+            TheColorQuiz © 2026
+        </footer>
+
+    </div>
+
+
+    <script>
+
+        const quiz = [
+
+            {
+                question: "Qual cor representa calma e inteligência?",
+                answers: ["Verde", "Azul", "Marsala", "Vermelho"],
+                correct: "Azul",
+                color: "#0000ff"
+            },
+
+            {
+                question: "Qual o HEX da cor Marsala?",
+                answers: ["#8e3143", "#0000ff", "#00aa00", "#ff0000"],
+                correct: "#8e3143",
+                color: "#8e3143"
+            },
+
+            {
+                question: "Qual cor está associada à natureza?",
+                answers: ["Azul", "Verde", "Roxo", "Preto"],
+                correct: "Verde",
+                color: "#00aa00"
+            },
+
+            {
+                question: "Qual cor transmite luxo e sofisticação?",
+                answers: ["Marsala", "Verde", "Azul", "Branco"],
+                correct: "Marsala",
+                color: "#8e3143"
+            },
+
+            {
+                question: "Qual cor é usada por empresas de tecnologia?",
+                answers: ["Azul", "Amarelo", "Verde", "Rosa"],
+                correct: "Azul",
+                color: "#0000ff"
+            }
+
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let hits = 0;
+        let timer = 30;
+        let interval;
+        let meuGrafico = null;
+
+        const questionEl = document.getElementById("question");
+        const answersEl = document.getElementById("answers");
+        const scoreEl = document.getElementById("score");
+        const progressEl = document.getElementById("progress");
+        const timerEl = document.getElementById("timer");
+
+        function init() {
+
+            document.getElementById("b_usuario").innerHTML =
+                sessionStorage.NOME_USUARIO || "Usuário";
+
+            loadDashboard();
+            loadQuestion();
+            carregarRanking();
+        }
+
+        function loadQuestion() {
+
+            clearInterval(interval);
+
+            timer = 30;
+            timerEl.innerHTML = timer;
+            interval = setInterval(() => {
+                timer--;
+                timerEl.innerHTML = timer;
+                if (timer <= 0) {
+                    clearInterval(interval);
+                    nextQuestion();
+                }
+
+            }, 1000);
+
+            const q = quiz[currentQuestion];
+            document.body.style.background = q.color;
+            progressEl.innerHTML =
+                `Pergunta ${currentQuestion + 1} de ${quiz.length}`;
+
+            questionEl.innerHTML = q.question;
+            answersEl.innerHTML = "";
+
+            q.answers.forEach(answer => {
+                const btn = document.createElement("button");
+                btn.innerHTML = answer;
+                btn.onclick = () => checkAnswer(btn, answer);
+                answersEl.appendChild(btn);
+
+            });
+        }
+
+        function checkAnswer(button, answer) {
+            clearInterval(interval);
+            const correct = quiz[currentQuestion].correct;
+            const buttons =
+                document.querySelectorAll(".answers button");
+
+            buttons.forEach(btn => {
+                if (btn.innerHTML === correct) {
+                    btn.classList.add("correct");
+                }
+                if (btn.innerHTML === answer && answer !== correct) {
+                    btn.classList.add("wrong");
+                }
+                btn.disabled = true;
+
+            });
+
+            if (answer === correct) {
+                score += 10;
+                hits++;
+                scoreEl.innerHTML = score;
+                document.getElementById("hits").innerHTML = hits;
+            }
+
+            setTimeout(() => {
+                nextQuestion();
+            }, 1500);
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quiz.length) {
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            let ranking = "";
+            if (score <= 20) {
+                ranking = "Iniciante das Cores";
+            } else if (score <= 40) {
+                ranking = "Explorador Cromático";
+            } else {
+                ranking = "Mestre das Cores";
+            }
+
+            document.getElementById("result").style.display = "block";
+            questionEl.style.display = "none";
+            answersEl.style.display = "none";
+            document.querySelector(".top-quiz").style.display = "none";
+            document.getElementById("finalScore").innerHTML =
+                `Sua pontuação foi ${score} pontos`;
+            document.getElementById("rankingText").innerHTML =
+                ranking;
+            let quizzes =
+                localStorage.getItem("quizCount") || 0;
+            quizzes++;
+            localStorage.setItem("quizCount", quizzes);
+            document.getElementById("quizCount").innerHTML =
+                quizzes;
+            let best =
+                localStorage.getItem("bestScore") || 0;
+            if (score > best) {
+                localStorage.setItem("bestScore", score);
+                document.getElementById("bestScore").innerHTML =
+                    score;
+            }
+
+
+
+
+            console.log({
+                pontuacao: score,
+                resultado: ranking,
+                fk_usuario: sessionStorage.ID_USUARIO
+            });
+
+
+
+
+            fetch("/quiz/salvar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pontuacao: score,
+                    resultado: ranking,
+                    fk_usuario: sessionStorage.ID_USUARIO
+                })
+            })
+
+                .then(res => res.json())
+                .then(data => {
+                    console.log("Quiz salvo:", data);
+                    carregarRanking();
+                })
+
+                .catch(err => {
+                    console.log(err);
+
+                });
+
+            gerarGraficoResultado(score, ranking);
+        }
+
+        function carregarRanking() {
+
+            fetch("/quiz/ranking")
+                .then(res => res.json())
+                .then(data => {
+
+                    let tabela =
+                        document.getElementById("rankingTable");
+                    tabela.innerHTML = "";
+                    data.forEach(item => {
+
+                        tabela.innerHTML += `
+
+                        <tr>
+                            <td>${item.nome}</td>
+                            <td>${item.pontuacao || 0}</td>
+                        </tr>
+                    `;
+                    });
+                });
+        }
+
+        function restartQuiz() {
+
+            currentQuestion = 0;
+
+            score = 0;
+
+            hits = 0;
+            scoreEl.innerHTML = 0;
+            document.getElementById("hits").innerHTML = 0;
+            document.getElementById("result").style.display =
+                "none";
+
+            questionEl.style.display = "block";
+            answersEl.style.display = "grid";
+            document.querySelector(".top-quiz").style.display =
+                "flex";
+            loadQuestion();
+        }
+
+        function gerarGraficoResultado(score, ranking) {
+
+            const ctx =
+                document.getElementById("resultChart")
+                    .getContext("2d");
+            if (meuGrafico) {
+                meuGrafico.destroy();
+            }
+            meuGrafico = new Chart(ctx, {
+                type: "pie",
+                data: {
+
+                    labels: [
+                        "Sua Pontuação",
+                        "Restante"
+                    ],
+
+                    datasets: [{
+
+                        data: [
+                            score,
+                            50 - score
+                        ],
+
+                        backgroundColor: [
+                            "#4b1d6b",
+                            "#f2a65a"
+                        ]
+
+                    }]
+                },
+
+                options: {
+                    responsive: true
+                }
+            });
+
+            document.getElementById("resultText").innerHTML =
+                `${ranking} - Você fez ${score} pontos`;
+        }
+
+        function loadDashboard() {
+
+            document.getElementById("quizCount").innerHTML =
+                localStorage.getItem("quizCount") || 0;
+
+            document.getElementById("bestScore").innerHTML =
+                localStorage.getItem("bestScore") || 0;
+        }
+
+    </script>
+</body>
+
+</html>

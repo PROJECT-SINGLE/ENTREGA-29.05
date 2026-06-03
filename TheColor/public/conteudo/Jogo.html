@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laboratório das Cores</title>
+
+<style>
+
+body{
+    background:#5e3b8c;
+    font-family:Arial;
+    text-align:center;
+    color:white;
+}
+
+/* TABULEIRO */
+#tabuleiro{
+    width:420px;
+    height:420px;
+    margin:auto;
+    margin-top:20px;
+    border-radius:50%;
+    position:relative;
+    background:radial-gradient(circle,#9c7bd6,#4d2c73);
+    border:8px solid #d6b3ff;
+}
+
+/* CASAS */
+.casa{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    position:absolute;
+    border:2px solid white;
+}
+
+/* PAINEL */
+#painel{
+    margin-top:20px;
+}
+
+button{
+    width:120px;
+    height:40px;
+    margin:5px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* PLACAR */
+#placar{
+    width:420px;
+    margin:auto;
+    margin-top:20px;
+    background:rgba(255,255,255,0.2);
+    border-radius:15px;
+    padding:15px;
+}
+
+#historico{
+    text-align:left;
+    margin-top:10px;
+    min-height:150px;
+    font-size:18px;
+}
+
+#formula{
+    margin-top:15px;
+    font-size:22px;
+}
+
+#resultado{
+    margin-top:15px;
+    font-size:24px;
+}
+
+#pontos{
+    margin-top:10px;
+    font-size:24px;
+}
+
+.cor{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    margin-left:10px;
+    border:1px solid white;
+}
+
+</style>
+</head>
+<body>
+
+<h1>LABORATÓRIO DAS CORES</h1>
+
+<!-- TABULEIRO -->
+<div id="tabuleiro">
+
+<div class="casa" style="background:red; top:10px; left:185px;"></div>
+
+<div class="casa" style="background:blue; top:70px; left:320px;"></div>
+
+<div class="casa" style="background:yellow; top:185px; left:365px;"></div>
+
+<div class="casa" style="background:orange; top:320px; left:320px;"></div>
+
+<div class="casa" style="background:green; top:365px; left:185px;"></div>
+
+<div class="casa" style="background:purple; top:320px; left:50px;"></div>
+
+<div class="casa" style="background:pink; top:185px; left:10px;"></div>
+
+<div class="casa" style="background:cyan; top:70px; left:50px;"></div>
+
+</div>
+
+<!-- PAINEL -->
+<div id="painel">
+
+<h2>Escolha as cores</h2>
+
+<div id="botoes"></div>
+
+<br>
+
+<button onclick="misturar()">
+Misturar
+</button>
+
+<button onclick="limparFormula()">
+Limpar
+</button>
+
+<div id="formula">
+Mistura:
+</div>
+
+<div id="resultado"></div>
+
+<div id="pontos">
+Pontos: 0
+</div>
+
+</div>
+
+<!-- PLACAR -->
+<div id="placar">
+
+<h2>PLACAR DE MISTURAS</h2>
+
+<div id="historico"></div>
+
+</div>
+
+<script>
+
+/*
+    LABORATÓRIO DAS CORES
+    Apenas:
+    - vetores
+    - for
+    - if
+*/
+
+/* cores disponíveis */
+let nomes = [
+"VERMELHO",
+"AZUL",
+"AMARELO",
+"LARANJA",
+"VERDE",
+"ROXO",
+"ROSA",
+"CIANO",
+"MARROM",
+"LIMA",
+"VINHO",
+"TURQUESA",
+"DOURADO",
+"PRATA",
+"PRETO"
+];
+
+/* códigos */
+let codigos = [
+"R",
+"B",
+"Y",
+"O",
+"G",
+"P",
+"K",
+"C",
+"M",
+"L",
+"V",
+"T",
+"D",
+"S",
+"N"
+];
+
+/* cores CSS */
+let css = [
+"red",
+"blue",
+"yellow",
+"orange",
+"green",
+"purple",
+"pink",
+"cyan",
+"brown",
+"lime",
+"darkred",
+"turquoise",
+"gold",
+"silver",
+"black"
+];
+
+/* misturas */
+let misturas = [
+
+["RY","LARANJA"],
+["YR","LARANJA"],
+
+["BY","VERDE"],
+["YB","VERDE"],
+
+["RB","ROXO"],
+["BR","ROXO"],
+
+["RW","ROSA"],
+["WR","ROSA"],
+
+["BG","CIANO"],
+["GB","CIANO"],
+
+["RO","MARROM"],
+["OR","MARROM"],
+
+["YG","LIMA"],
+["GY","LIMA"],
+
+["RP","VINHO"],
+["PR","VINHO"],
+
+["BC","TURQUESA"],
+["CB","TURQUESA"],
+
+["YO","DOURADO"],
+["OY","DOURADO"],
+
+["WS","PRATA"],
+["SW","PRATA"],
+
+["RBY","PRETO"]
+];
+
+let formula = "";
+let pontos = 0;
+
+/* criar botões */
+for(let i = 0; i < nomes.length; i++){
+
+    document.getElementById("botoes").innerHTML +=
+
+    "<button onclick=\"adicionar('" + codigos[i] + "')\" " +
+
+    "style='background:" + css[i] + "; color:white;'>"
+
+    + nomes[i] +
+
+    "</button>";
+}
+
+/* adicionar fórmula */
+function adicionar(cor){
+
+    formula = formula + cor;
+
+    document.getElementById("formula").innerHTML =
+    "Mistura: " + formula;
+}
+
+/* limpar */
+function limparFormula(){
+
+    formula = "";
+
+    document.getElementById("formula").innerHTML =
+    "Mistura:";
+}
+
+/* misturar */
+function misturar(){
+
+    let acertou = false;
+
+    for(let i = 0; i < misturas.length; i++){
+
+        if(formula == misturas[i][0]){
+
+            let corNova = misturas[i][1];
+
+            let corCss = "white";
+
+            for(let j = 0; j < nomes.length; j++){
+
+                if(corNova == nomes[j]){
+
+                    corCss = css[j];
+                }
+            }
+
+            document.getElementById("resultado").innerHTML =
+            "Você criou: " + corNova;
+
+            pontos = pontos + 10;
+
+            document.getElementById("pontos").innerHTML =
+            "Pontos: " + pontos;
+
+            /* adiciona no placar */
+            document.getElementById("historico").innerHTML +=
+
+            formula +
+
+            " = " +
+
+            corNova +
+
+            " <span class='cor' style='background:" +
+
+            corCss +
+
+            ";'></span><br>";
+
+            acertou = true;
+        }
+    }
+
+    if(acertou == false){
+
+        document.getElementById("resultado").innerHTML =
+        "Mistura inválida!";
+    }
+
+    formula = "";
+
+    document.getElementById("formula").innerHTML =
+    "Mistura:";
+}
+
+</script>
+
+</body>
+</html>

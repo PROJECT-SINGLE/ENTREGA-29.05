@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+    <link rel="stylesheet" href="../style_aulas.css" />
+
+    <title>TheColors צְבָעִים </title>
+
+
+</head>
+
+<body>
+
+   
+
+    <section class="hero">
+
+        <div class="shape orange-1"></div>
+        <div class="shape orange-2"></div>
+        <div class="shape orange-3"></div>
+        <div class="shape orange-4"></div>
+        <div class="shape orange-5"></div>
+
+    
+        <img src="paleta.png" class="paint-left" alt="Pintura">
+        <img src="pantone.png" class="brush-right" alt="Pincéis">
+
+
+        <div class="hero-content">
+
+            <h1 class="title">CORES<br>SECUNDÁRIAS</h1>
+
+            <p class="subtitle">
+                Explore o universo das cores, suas propriedades físicas,
+                percepção visual e aplicações na arte, design e tecnologia.
+            </p>
+
+            <button class="btn-start" onclick="scrollToContent()">
+                COMEÇAR
+            </button>
+
+        </div>
+
+    </section>
+
+   
+
+    <section class="content-section" id="conteudo">
+        <div class="content-wrapper">
+            <div class="top-content">
+
+
+                <div class="left-side">
+
+
+                    <!-- RGB -->
+                    <div class="rgb-container">
+
+                        <div class="circle red"></div>
+                        <div class="circle green"></div>
+                        <div class="circle blue"></div>
+
+                    </div>
+
+                    <div class="image-box">
+
+                        <img id="rgb" src="piiscico3.png">
+
+                    </div>
+                    <br>
+
+                </div>
+
+                <div class="right-side">
+
+                    <h2 class="main-title">
+                        <br>CORES<br>
+                        SECUNDÁ<br>RIAS
+                    </h2>
+
+                    <h3 class="intro-title">
+                        Introdução
+                    </h3>
+
+                    <p class="text">
+                        As cores secundárias são laranja, roxo e verde. Elas recebem essa denominação uma vez que surgem
+                        da união de duas cores primárias, misturadas em iguais proporções. Essa é a forma tradicional de
+                        se entender a relação entre as cores, desenvolvida há tempos pelo artista Leonardo da Vinci, o
+                        cientista Isaac Newton e outros estudiosos. As três cores secundárias são:
+                        <br>
+                        Laranja = vermelho + amarelo<br>
+                        Verde = azul + amarelo<br>
+                        Roxo/Violeta = azul + vermelho
+                        <br>
+                        Tecnicamente, as cores secundárias possuem função de equilíbrio e transição entre as cores
+                        primárias, sendo amplamente utilizadas em design, pintura, publicidade e composição visual para
+                        criar contraste, harmonia e profundidade cromática.
+                    </p>
+                    <br>
+
+                </div>
+
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Cada cor secundária nasce da mistura exata de duas primárias</h3>
+                    <p>
+                        Laranja = vermelho + amarelo<br>
+                        Verde = azul + amarelo<br>
+                        Roxo = vermelho + azul
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>As cores secundárias mudam dependendo do sistema de cor</h3>
+                    <p>
+                        Em tinta, as secundárias são laranja, verde e roxo. Já em telas digitais (RGB), as secundárias
+                        passam a ser ciano, magenta e amarelo.
+                </div>
+
+                <div class="card">
+                    <h3>Elas são muito usadas para criar contraste visual</h3>
+                    <p>
+                        Designers costumam combinar cores secundárias com suas cores complementares para destacar
+                        elementos.<br>
+
+                        Roxo -- amarelo<br>
+                        Verde -- vermelho<br>
+                        Laranja -- azul<br>
+                    </p>
+                </div>
+
+            </div>
+            <br>
+
+
+            <div class="container">
+
+                <!-- CARDS -->
+                <div class="cards">
+
+                    <div class="card">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc84mxLrEcFmH756eeANT6_skl2e4q0Wn-AQ&s">
+                        <h3>Laranja</h3>
+                        <p>Simboliza energia, criatividade, entusiasmo,.</p>
+                        <p>A cor laranja simboliza energia, criatividade, entusiasmo, vitalidade e alegria. Como uma
+                            cor quente resultante da mistura de vermelho e amarelo, ela estimula a mente, promove a
+                            comunicação, a sociabilidade e está associada ao sucesso e prosperidade. É uma cor
+                            vibrante que remete ao verão, calor e espontaneidade;</p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8IDQgNFREWFhURFRUYHSkgJBoxGxUTITEtJS8rLi4wFx8zODUuNygtOisBCgoKDQ0NFQ0NDisZFRkrKzgrKysrKy0rKysrKy0rLSsrLSsrLSsrKy0rKzc3Ny4rKysrKysrKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAAIDBAX/xAAmEAEBAQEAAAMIAwEAAAAAAAAAARECEjHwIUFRcZGxwdFhgaED/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAABEBURL/2gAMAwEAAhEDEQA/APuop6h9gBFBBLVAYNMAJUCNKCICQhSkgQsIoOXUZduo52LiMNQYtUbQ5KARCiBAIxkgK6/8vZPm5O0TRWoGIFJCtghBM0iqIJAkkCoaxmiIhKFBINFkilAgsY75bQOFgdeo59RqoOW2GoBQWoKstBQQ0RUDx5umuXNalNGyzq1Bos6kHREIoDQUZxYUAwpAmeiKAIKoklQRjLSBS1CosoGq59RoUHOrlqstIQQCSUBCtCgytSVDq0AGvEmUK9gKc1AIBJJRAoGURYDJSEQtNZUMOhA0AkCNFo1YNLWdWkCKtWqIUgAQQaZrQoM0HplRIrBAmsQPSWS5tJJAgUCSQBUoGKGqyqKgs1RJIEgNA0LVqhWJAgkCSAiMBFagqlVBWOcdFIDOGRrGpEoz4Q6YihWoyIq1asSDUTHia560CikVlGsqiY6aV9/r4lGFVZ9TZ6+K3EZVODCgrLWMrcRN8czzvt8/Z8s/cEk+39Hm+73fzJ1l8k3eA7meXz+IPn69fylzQI5+AuaJJCowKARWsZoFrlmNRAqJRAkEVLUgWoEFgsxpUFz01rlmGUg3WToQSvr3IERm32+vjp36f6KiYDVvn692fkdBfOBt/P2wb+fX2CWIot9v0SWBl8v6+9/an6+2BYkDKJCYQgKSqliawBRiSCjQakBNSCRuIoxNJBzhUSiSIJJALGWhQWlkwElUAoaAgsc3Vz6XAJHFQLCcFCanDU5SjEjeNSCxKM4G7GcUUh6EPQMgoE3GGp0DUajHiPjRXRMeJJAQpKJJAgQCFSAGBQRpkoUFIROfU9roMBjDOW/CfCtViRqRrDiUHhWNBAVKhRLEgGLEgYsTVGKgawGUFgI6iBxDUo6IplQksUQOIBQ0AAKA4HSQXlKMJrAoCsIKNRkoFIorKIVBQ0AAawKBLEIEUDPQMViilIMBYigdMWN2DGFZxY1iwGcGN4MBnBjeLFGMWNYsBqIRpFGM3lsg5YcdMZ8JUZxY2sBgnFgoDQwAGhioA1gsAYMaxYAxmtsqLwrGtSDlTGuuRi0RGIHpxYk51VixIosGJKLBiQDAkoikBjSSaIpIK8hIFgsKFZxYkqDEkogkCKQM1lJUKCFKxIFiSSj/2Q==">
+                        <h3>Roxo</h3>
+                        <p>Simboliza Espiritualidade.</p>
+                        <p>
+                            A cor roxo simboliza espiritualidade, mistério, criatividade e
+                            transformação. Historicamente ligado à nobreza e ao poder, este tom equilibra a
+                            estabilidade do azul com a energia do vermelho, sendo associado à sabedoria,
+                            sofisticação, luxo e introspecção. Transmite uma sensação de tranquilidade e convida à
+                            reflexão e ao autoconhecimento.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNyg5LisBCgoKDQ0NDg0NDysZFRkrKysrKy0tLSsrKysrKysrKysrKys3KysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAP8AxgMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQX/xAAWEAEBAQAAAAAAAAAAAAAAAAAAEQH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQb/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDAUGVZMEAUQFAAAAAAAAAAAAAAUQEUAEUAEAAAUAABQQUBFABFARQBBQEFQAAAAFEBAAVQAQVAUQBQARRAVBQRUUAABFAEUBBUAAAUQFABFAAAARQAAAAEUAAAABFRQEVAAAUAAAAAAAAAAAAAAAAAEUAEVAAUAAAAEUAAAAAAAAAAAAAAARRAVFARUxQAAAARQAAAEUAAAAAAAAAABBQQVAFAAAARQEUBFQBQAQUAEUBBQAQFAABAAUARQRQAQAUABFAAABFARQEVFBFQBRFBBQAEBUAAAAVAAAFQBRFABAURQRQAAARUBUAAAACACggAAigIAKAAAAAAAAAAAAAAAoIogigAgoKCABFASEVAAUEFAQVABQEFASCoAKAhRQQFAAAAAEAURQAABFAAAAABAUEBUABRAUAAQBRAFEAUSgCoAogCiAKIAogCiAKIAogCiAAoCCgIQUEFAQUBBQEFQAUBBUAAAFAQUBBQAAAAAAAAAAEUAAAAAAAAAQUBFAAAH//Z">
+                        <h3>Verde</h3>
+                        <p>Simboliza Equilíbrio.</p>
+                        <p>
+                            O verde é amplamente associado ao equilíbrio, harmonia,
+                            renovação e natureza. Como cor que representa o ponto de encontro entre o coração
+                            (emoções) e a mente, transmite sensações de calma, segurança e vitalidade. É
+                            frequentemente utilizado para evocar sustentabilidade, saúde e prosperidade.
+                        </p>
+                    </div>
+
+                </div>
+
+                <br><br>
+
+                <div class="right-side">
+
+                    <h3 class="intro-title">
+                        Atividade
+                    </h3>
+
+                    <p class="text">
+                        MANDALAS COLORIDAS EM ESQUEMAS DE COMBINAÇÕES
+                        Objetivo: aprender a manipular o Círculo Cromático nos esquemas de combinações de cores e
+                        gerar exemplos materializados de cada um deles em todas as possibilidades.
+                        Material: mandalas para pintar, lápis de cor.
+                        Descrição: pintar mandalas prontas (ou desenhá-las), de acordo com cada Esquema de
+                        Combinações de Cores, em todas as possibilidades. Por exemplo, pintar várias mandalas com três
+                        cores análogas no círculo.
+                        <br><br>
+                    </p>
+                    <br>
+
+                    <img src="atividade.png" style="display: block; margin: 0 auto; width: 600px;">
+
+                </div>
+
+
+                <img onclick="voltar()" class="seta" src="paletadecores.png">
+                <script>
+                    function voltar() {
+                        window.location.href = "../conteudo.html";
+                    }
+                </script>
+
+
+
+
+    </section>
+
+   
+
+    <footer>
+        <p>
+            TheColor: Porque o maior pintor do mundo está pintando a sua história.
+        </p>
+    </footer>
+
+  
+
+    <script>
+
+        // Scroll suave
+        function scrollToContent() {
+            document.getElementById("conteudo")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+        // Efeito no botão
+        const btn = document.querySelector(".btn-start");
+
+        btn.addEventListener("mouseenter", () => {
+            btn.style.transform = "scale(1.05)";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #3fa0e8;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* ===========================
+       CAPA
+    ============================*/
+
+.hero {
+    min-height: 100vh;
+    background: #183f64;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* Formas decorativas */
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.95;
+}
+
+.orange-1 {
+    width: 240px;
+    height: 240px;
+    background: #ef8b57;
+    top: -90px;
+    left: -70px;
+}
+
+.orange-2 {
+    width: 220px;
+    height: 220px;
+    background: #ef8b57;
+    top: -100px;
+    right: 180px;
+}
+
+.orange-3 {
+    width: 260px;
+    height: 260px;
+    background: #ef8b57;
+    top: 40px;
+    right: -120px;
+}
+
+.orange-4 {
+    width: 250px;
+    height: 250px;
+    background: #ef8b57;
+    bottom: -100px;
+    left: -100px;
+}
+
+.orange-5 {
+    width: 250px;
+    height: 250px;
+    background: #ef8b57;
+    bottom: -90px;
+    right: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 5rem;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    color: #f3f3f3;
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.btn-start {
+    background: #d1c8c2;
+    color: #2f6faa;
+    border: none;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-start:hover {
+    transform: translateY(-3px);
+    background: #f6f6f6;
+}
+
+/* Imagens decorativas */
+.paint-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    opacity: 0.95;
+}
+
+.brush-right {
+    position: absolute;
+    right: 80px;
+    top: 120px;
+    width: 130px;
+}
+
+.star-bottom {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 160px;
+    opacity: 0.9;
+}
+
+/* ===========================
+       CONTEÚDO
+    ============================*/
+
+.content-section {
+    background: #ef8b57;
+    min-height: 100vh;
+    padding: 40px 40px;
+    position: relative;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin-top: 1px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px 60px 60px 60px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.top-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.left-side {
+    flex: 1;
+    min-width: 320px;
+}
+
+.right-side {
+    flex: 1;
+    min-width: 320px;
+}
+
+.main-title {
+    font-size: 5rem;
+    color: #0069b4;
+    font-weight: 900;
+    line-height: 0.95;
+    margin-bottom: 30px;
+}
+
+.intro-title {
+    color: #d81f1f;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+/* RGB */
+.rgb-container {
+    position: relative;
+    width: 250px;
+    height: 220px;
+    margin-bottom: 40px;
+}
+
+.circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    position: absolute;
+    mix-blend-mode: screen;
+}
+
+.red {
+    background: red;
+    top: 0;
+    left: 50px;
+    opacity: 0.8;
+}
+
+.green {
+    background: lime;
+    bottom: 0;
+    left: 20px;
+    opacity: 0.8;
+}
+
+.blue {
+    background: blue;
+    bottom: 0;
+    right: 20px;
+    opacity: 0.8;
+}
+
+/* Área para imagem/espectro */
+.image-box {
+    width: 100%;
+    min-height: 350px;
+    border: 3px dashed #ffffff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    color: #888;
+    padding: 20px;
+    text-align: center;
+}
+
+.seta {
+    transform: rotate(-90deg);
+    width: 120px;
+    position: fixed;
+    left: 70px;
+    top: 20px;
+}
+
+.seta:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+/* Cards */
+
+.container {
+    padding: 20px;
+}
+
+.cards2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card2 {
+    width: 250px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.card2 img {
+    width: 70%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #0069b4;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card p {
+    line-height: 1.7;
+}
+
+/* ===========================
+       FOOTER
+    ============================*/
+
+footer {
+    background: #183f64;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer p {
+    opacity: 0.9;
+}
+
+
+
+/* ===========================
+       RESPONSIVO
+    ============================*/
+
+@media(max-width:900px) {
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .content-wrapper {
+        padding: 30px;
+    }
+
+    .top-content {
+        flex-direction: column;
+    }
+
+    .brush-right {
+        width: 90px;
+        right: 20px;
+    }
+
+    .paint-left {
+        width: 160px;
+    }
+
+    .star-bottom {
+        width: 100px;
+    }
+}

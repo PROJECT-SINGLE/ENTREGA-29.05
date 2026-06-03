@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TheColors צְבָעִים | Tempo Real</title>
+
+
+  <link rel="stylesheet" href="./../css/dashboards.css">
+   <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+
+  <link rel="stylesheet" href="style_home.css" />
+
+  <script src="../js/sessao.js"></script>
+
+
+
+
+</head>
+
+<body onload="validarSessao(); init();">
+
+  <div class="janela">
+
+    <div class="header-left dash-header">
+
+      <h1>TheColors <br>
+        צְבָעִים </h1>
+
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario">usuário</span>!<br> Muito bom ter você<br> de volta!</h3>
+      </div>
+
+      <div class="btn-nav">
+        <h3>Conteúdo</h3>
+      </div>
+
+      <div class="btn-nav-white">
+        <a href="./dash2.html">
+          <h3>Quiz</h3>
+        </a>
+      </div>
+
+      <div class="btn-nav-white">
+        <a href="./mural.html">
+          <h3>Mural</h3>
+        </a>
+      </div>
+
+      <div class="btn-logout" onclick="limparSessao()">
+        <h3>Sair</h3>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div style="margin-left: 250px;"> 
+  <section class="hero">
+
+    <div class="wave top-left"></div>
+
+    <div class="container">
+
+      <div>
+        <h1 class="title">
+          THE <br />
+          COLORS<br>
+          צְבָעִים
+        </h1>
+
+        <p class="subtitle">
+          A cor é um dos elementos mais importantes da arte.
+          Aprenda como as cores se conectam, criam emoções
+          e organizam composições visuais usando a
+          <span class="highlight">roda das cores</span>.
+        </p>
+        <p class="subtitle">
+          As cores possuem um significado muito mais profundo.
+          Não são apenas elementos "Bonitos", elas podem
+          nos ajudar a entender e identificar quem somos.
+        </p>
+      </div>
+
+      <div class="wheel-wrapper">
+        <div class="wheel">
+          <div class="triangle"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="content">
+
+    <h2 class="section-title">
+      Vamos Aprender
+    </h2>
+
+    <div class="cards" id="cardsContainer"></div>
+
+  </section>
+
+  <!-- INFO -->
+  <section class="info">
+
+    <div>
+      <h2>
+        Roda das Cores
+      </h2>
+
+      <p>
+        Ela mostra a conexão entre as cores e organiza
+        os tons em grupos. Com ela conseguimos entender
+        cores primárias, secundárias, complementares
+        e harmonia visual.
+      </p>
+    </div>
+
+    <div class="fact">
+
+      <div class="wheel-wrapper">
+        <div class="wheel" style="animation-duration:28s;">
+          <div class="triangle"></div>
+        </div>
+      </div>
+
+      <p>
+        Você sabia? Outra palavra para cor é “tom”.
+        Nesta roda das cores podemos visualizar muitos
+        tons diferentes!
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>O Maior Pintor do Mundo</span> está pintando a sua história.
+     <section class="social">
+        <h2>Me encontre aqui</h2>
+        <div class="social-links">
+            <a href="https://www.instagram.com/euerykalima/">Instagram</a>
+            <a href="https://github.com/Eryka-Lima">GitHub</a>
+            <a href="https://br.linkedin.com/in/eryka-lima-a07622132">LinkedIn</a>
+        </div>
+    </section>
+  </footer>
+
+
+  </div>
+
+  <script>
+  
+    // CARDS EM VETOR JSON
+    
+    const cards = [
+      {
+        icon: "📘",
+        title: "Organizando Conhecimento",
+        description:
+          "Aprenda e conheça mais sobre o universo das cores.",
+        link: "conteudo.html"
+      },
+     
+      {
+        icon: "🔵",
+        title: "Biblioteca",
+        description:
+          "Explorando um breve resumo das cores e curiosidades sobre os conteúdos.",
+        link: "colorpediaeryka.html"
+      },
+      {
+        icon: "🎨",
+        title: "Eryka Lima",
+        description:
+          "Descubra uma breve Biografia da autora apaixonada por cor.",
+        link: "eryka/bio.html"
+      },
+    ];
+
+    const container = document.getElementById("cardsContainer");
+
+    cards.forEach(card => {
+
+      // AGORA É UM LINK
+      const cardElement = document.createElement("a");
+
+      // LINK DA PÁGINA
+      cardElement.href = card.link;
+
+      // CLASSE
+      cardElement.classList.add("card");
+
+      // REMOVE ESTILO PADRÃO DO LINK
+      cardElement.style.textDecoration = "none";
+      cardElement.style.color = "inherit";
+
+      cardElement.innerHTML = `
+    <div class="icon">${card.icon}</div>
+
+    <h3>${card.title}</h3>
+
+    <p>${card.description}</p>
+
+    <br>
+
+    <div>
+      Clique: Acessar Página
+    </div>
+  `;
+
+      container.appendChild(cardElement);
+
+    });
+
+   
+
+  </script>
+
+</body>
+
+</html>

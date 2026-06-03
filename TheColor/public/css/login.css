@@ -1,0 +1,39 @@
+body {
+            font-family: Arial, sans-serif;
+            background-color: #63B1BC;
+            margin: 0;
+            padding: 0;
+            margin: 0;
+            background-image: url("https://blogger.googleusercontent.com/img/a/AVvXsEioLRg9sWecxtzvQr5iuterpc_c7CgHyJJ0XEpfosvPJOgaD6RAKkV_3aW6fytPD2QIuOnCqXQ7-hKaLr6kPihF75tHgCWI0cY4VC7SlJTWo-ZoxL-t7oaMjowWXxC_OqFL-0aXsxR8yv1NW4qEbRyki9NpoJLuJrSfLRu2XXnZO6C_h0ZZWXZMaN7hPhEs=w1200-h675-p-k-no-nu");
+            background-size: cover;
+            background-position: center;
+            
+        }
+
+
+        .overlay {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        button {
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #ED145B;
+            color: #FFFFFF;
+        }
+
+        a {
+            text-decoration: none;
+        }

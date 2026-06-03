@@ -1,0 +1,267 @@
+@font-face {
+    font-family: ClubPenguin;
+    src: url("Fontes/bumbastika.regular.ttf");
+}
+
+@font-face {
+    font-family: Burbankbig;
+    src: url("Fontes/BurbankBigCondensed/burbankbigcondensed_black.ttf");
+}
+
+@font-face {
+    font-family: ACME;
+    src: url("Fontes/ClubPenguinFonts/A.C.M.E.\ Secret\ Agent\ Bold.ttf");
+}
+
+@font-face {
+    font-family: BarnetSans;
+    src: url("Fontes/BarnetSans-Regular.otf");
+}
+
+@font-face {
+    font-family: squares;
+    src: url("Fontes/Square.ttf");
+}
+
+/*Fontes que serão usadas no blog :)*/
+
+body {
+    background-color: #33aaff;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.elementos-principais {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.aba {
+    height: 120px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.corpo {
+    width: 1200px;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.topo-corpo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+#logo {
+    width: 200px;
+}
+
+.titulo {
+    font-size: 40px;
+    font-family: ClubPenguin;
+    color: #036cb7;
+}
+
+#titulo h2 {
+    margin: 0;
+}
+
+.subtitulo {
+    padding-left: 40px;
+    font-size: 35px;
+    font-family: ClubPenguin;
+    color: #FFA71B;
+}
+
+.infos h2 {
+    margin: 0;
+}
+
+.infos {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem {
+    width: 700px;
+}
+
+#introducao {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+}
+
+.texto {
+    font-size: 25px;
+}
+
+#comunidade {
+    display: flex;
+    flex-direction: column;
+}
+
+#parte1-comunidade {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    align-items: center;
+}
+
+#parte2-comunidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fanarts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.img-fanart {
+    width: 350px;
+}
+
+.img-fanart2 {
+    width: 200px;
+}
+
+#festas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+#parte1-merchandise {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 40px;
+}
+
+#parte2-merchandise {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end
+}
+
+.imagem-merchandise {
+    width: 300px;
+}
+
+#imagem-merchandise2 {
+    height: 260px;
+}
+
+/*#img-mapa {
+    height: 115px;
+} */
+
+
+.xis:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.imagem{
+    width: 400px;
+}
+
+#rock {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    text-align: center;
+}
+
+.titulo-personagem {
+    font-family: Burbankbig;
+    font-size: 55px;
+    color: #c21717;
+    
+}
+
+#rock p {
+    width: 500px;
+}
+
+.voce-sabia {
+    margin-top: 40px;
+}
+
+.infos-personagem {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.infos-personagem p {
+    width: 400px;
+}
+
+.seta {
+    rotate: -90deg;
+    width: 120px;
+    position: fixed;
+    left: 70px;
+}
+
+.seta:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+/* CONTAINER */
+        .container {
+            padding: 20px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* CARD */
+        .card {
+            width: 250px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 70%;
+            height: 150px;
+            object-fit: cover;
+        }

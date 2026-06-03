@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+    <link rel="stylesheet" href="../style_aulas.css" />
+
+    <title>TheColors צְבָעִים </title>
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+
+        <div class="shape orange-1"></div>
+        <div class="shape orange-2"></div>
+        <div class="shape orange-3"></div>
+        <div class="shape orange-4"></div>
+        <div class="shape orange-5"></div>
+
+    
+        <img src="paleta.png" class="paint-left" alt="Pintura">
+        <img src="pantone.png" class="brush-right" alt="Pincéis">
+
+
+        <div class="hero-content">
+
+            <h1 class="title">CORES<br>PRIMARIAS</h1>
+
+            <p class="subtitle">
+                Explore o universo das cores, suas propriedades físicas,
+                percepção visual e aplicações na arte, design e tecnologia.
+            </p>
+
+            <button class="btn-start" onclick="scrollToContent()">
+                COMEÇAR
+            </button>
+
+        </div>
+
+    </section>
+
+    
+    <section class="content-section" id="conteudo">
+        <div class="content-wrapper">
+            <div class="top-content">
+
+
+                <div class="left-side">
+
+
+                    <!-- RGB -->
+                    <div class="rgb-container">
+
+                        <div class="circle red"></div>
+                        <div class="circle green"></div>
+                        <div class="circle blue"></div>
+
+                    </div>
+
+                    <div class="image-box">
+
+                        <img id="rgb" src="CoresPrimarias1.png">
+
+                    </div>
+                    <br>
+
+                </div>
+
+                <div class="right-side">
+
+                    <h2 class="main-title">
+                        CORES<br>
+                        PRIMARIAS
+                    </h2>
+
+                    <h3 class="intro-title">
+                        Introdução
+                    </h3>
+
+                    <p class="text">
+                        Definição de cores primárias no contexto digital No mundo digital, as cores são formadas por
+                        emissões de luz, e é esse fator que torna o sistema RGB a escolha ideal para telas e monitores.
+                        As cores primárias no contexto digital são vermelho (red), verde (green) e azul (blue). Essas
+                        cores, quando combinadas em diferentes intensidades, criam todas as outras cores visíveis em uma
+                        tela digital. Já no caso da impressão, usamos um modelo subtrativo de cores chamado CMYK, que é
+                        baseado em pigmentos físicos. As cores primárias neste sistema são ciano (cyan), magenta
+                        (magenta), amarelo (yellow) e o preto (key, representado pela letra K).
+                        <br>
+                        As cores primárias são puras. A partir da mistura delas, surgem as secundárias, que podem ser
+                        mais escuras, com a adição de preto, ou mais claras, com a adição de branco. Veja mais sobre
+                        luminosidade e saturação.
+                    </p>
+                    <br>
+
+                </div>
+
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Nem toda área usa as mesmas cores primárias</h3>
+                    <p>
+                        Na arte aprendemos vermelho, azul e amarelo, mas em telas e
+                        tecnologia as cores primárias são diferentes
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Misturar todas as cores pode gerar resultados opostos</h3>
+                    <p>
+                        Quando misturamos luzes coloridas primárias (RGB), o resultado tende ao branco.
+                </div>
+
+                <div class="card">
+                    <h3>As cores primárias influenciam emoções e marketing</h3>
+                    <p>
+                        Vermelho costuma transmitir energia e urgência, azul passa confiança e calma, e amarelo chama
+                        atenção rapidamente.
+                    </p>
+                </div>
+
+            </div>
+            <br>
+
+
+            <div class="container">
+
+                <!-- CARDS -->
+                <div class="cards">
+
+                    <div class="card">
+                        <img
+                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBwcHCAcHBwcHBw0HBwcHBw8ICQcNFREWFhURExMYHSggGCYxGxMTITEhMSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDisZFRkrKy0rLTcrKysrKystLTcrKzcrKy0tLSstKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAFRABAQAAAAAAAAAAAAAAAAAAABH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIHBf/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAwDAQACEQMRAD8A5+A8Z0tRFRRUBVAFFQBRAVQEFEBVEAqiAVRAFEAVAEARQQBndEEVnRFQZ0BFRpWVRqqIAqoC1RBFqgBRUBaogFUQCqIBVEAqiAtUQCrRASgIJVQRUAQZAFRAQStACqIIqgCqIAoAoAAACiCCiAACgAAAFBAKqAJQEEAFQQBEAVlVQRpRFFAAUQRVEUAAUVAFEAUQAAAAEBAFEAAFSggIAgioCgAIKgCiKiioCqIBVAFAAFQFUQQUQAAVAAAEBRASgIIogAAqAAgAAIoAACoCqIIqgAKgKogFUQBRAKogAAACCKgKAAgAIAgAAgIBVABRAVQAABQAABFUQBRAFEAUQAAAAVAAAAQBAAQQAVARRAAVRBFaEBVAAAAAFAAAAAAAAAAABAAAEBUEEAFQQBAAAAFEAUAVRFFUQRVEUAAAAAAAAAAAQBUAAEVAAQQBAAQEAFQBQAFQFUAUVAFEVFFQFUQBRAFEAVAABFRUAQBAVAEABBAEAFAABUAURUUAFFQBRAFAFqiAVRAVRAKACAICiAgAACCKgKgCAqIDNFBRQEUAFFAEUEUAAAFAABQEFAQAAAQABAFQAASgIVAVkAEf/9k">
+                        <h3>Vermelho</h3>
+                        <p>Representa energia, paixão e intensidade.</p>
+                        <p>O vermelho é a cor que traz as duas energias mais vitais para o homem: o fogo e o sangue;
+                            A igreja usa o vermelho para simbolizar o sangue e a vida de Jesus. As batas dos
+                            sacerdotes, o manto do altar e comemorações como
+                            a Paixão de Cristo e a Sexta-feira santa;</p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEUBAIhF21z/AAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=">
+                        <h3>Azul</h3>
+                        <p>Transmite calma, confiança e tranquilidade.</p>
+                        <p>
+                            O azul é a cor que transmite uma energia essencial ao homem: a tranquilidade;
+                            A igreja usa o azul para simbolizar a serenidade, a fé e a devoção. As vestes e
+                            elementos
+                            litúrgicos podem apresentar esse tom em momentos de reflexão e devoção.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NCAcHBwcHBwcHBw0HBwcHBw8IDQcNFREWFhURFRMYHSggGBoxGxMTITEhMSkrLi46Fx8zODMtNygtLisBCgoKDg0NDg0NDysZFRkrKysrLSsrKysrKy0rKysrLSsrKysrLS0tLTcrLSs3KysrKzc3NystLSstLS0tLSsrK//AABEIALcBEwMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDBv/EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgcF/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwD3wK5K9cAFAAUQBRAFEUCKhqIqs6ooIAAKIAAAAioqIAAACWIqKqVit1mtQQAV3AYZURUUAAAAAAAAAAVAFEUEFQAAAEABFQAAAoIgKqVmtVmrBAFV2VBhlQAUBFAAAAAAAAFQBRAAAAEABFQAAAABKCAKqVmtVmqIAquwDCCoCKqAKAigAAAAAAAAAAIAAqIAAAAAAlVKogCqlZrVZoIAquoDCKIogqAKIoAAAAKIIqiAKIAAKggAAAIKACAJVRVARRKlWpVggAOoDLQAJVEVGQAAAFEAUQBRAFEAVAAAAABFQAAVUABARQrNarNUAQV1AZVQBABEURRAAAAAAAAAAAAAABAAAVQAEAFRFRQrNaZqiAKjoqKw0KgCgDIAiKIAoAAAAAAAAgAqAKgAAKoCCgIAiooM1pmqIAo2IrKqqKgoiiYKgIAIioAAAKIAqAAACiAACqCAuAIGAIoAgolVKqICKjaoIqqgg0IqCiKIACAAAAAAAAAAAACKgoCCiAoCCgAKM1pmkEBFR0ARBUAVUEGhAFVlUFEAUQEUQBQBQEEVAFBABAUEBQAFAQUZqoogiqjS6CIugIgKAGgBpqiBpoAaaAGmqAaaAGmgCaaAIACAKAAogCwTQUTWaoomgKj/2Q==">
+                        <h3>Amarelo</h3>
+                        <p>Simboliza alegria, luz, energia e criatividade.</p>
+                        <p>
+                            O amarelo é a cor que traz uma das energias mais vitais para o homem: a luz;
+                            A igreja usa o amarelo para simbolizar a luz divina e a glória de Jesus. As batas dos
+                            sacerdotes e o manto do altar podem usar esse tom em celebrações solenes.
+                        </p>
+                    </div>
+
+                </div>
+
+                <br><br>
+
+                <div class="right-side">
+
+                    <h3 class="intro-title">
+                        Atividade
+                    </h3>
+
+                    <p class="text">
+                        MANDALAS COLORIDAS EM ESQUEMAS DE COMBINAÇÕES
+                        Objetivo: aprender a manipular o Círculo Cromático nos esquemas de combinações de cores e
+                        gerar exemplos materializados de cada um deles em todas as possibilidades.
+                        Material: mandalas para pintar, lápis de cor.
+                        Descrição: pintar mandalas prontas (ou desenhá-las), de acordo com cada Esquema de
+                        Combinações de Cores, em todas as possibilidades. Por exemplo, pintar várias mandalas com três
+                        cores análogas no círculo.
+                        <br><br>
+                    </p>
+                    <br>
+
+                    <img src="atividade.png" style="display: block; margin: 0 auto; width: 600px;">
+
+                </div>
+
+
+                <img onclick="voltar()" class="seta" src="paletadecores.png">
+                <script>
+                    function voltar() {
+                        window.location.href = "../conteudo.html";
+                    }
+                </script>
+
+
+
+
+    </section>
+
+   
+
+    <footer>
+        <p>
+            TheColor: Porque o maior pintor do mundo está pintando a sua história.
+        </p>
+    </footer>
+
+
+    <script>
+
+        // Scroll suave
+        function scrollToContent() {
+            document.getElementById("conteudo")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+        // Efeito no botão
+        const btn = document.querySelector(".btn-start");
+
+        btn.addEventListener("mouseenter", () => {
+            btn.style.transform = "scale(1.05)";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+        });
+
+    </script>
+
+</body>
+
+</html>

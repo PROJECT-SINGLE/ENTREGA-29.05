@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="Fotos/Happy_emoticon.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="cadastro.js"></script>
+    <title>TheColors</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #63B1BC;
+            margin: 0;
+            padding: 0;
+            transition: 0.5s;
+        }
+
+        #container {
+            width: 80%;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #ED145B;
+            color: white;
+
+        }
+
+        #div_output {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            border: 2px solid #63666A;
+            text-align: left;
+            display: none;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #amostra_cor {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin: 20px auto;
+            border: 3px solid black;
+        }
+
+        .titulo {
+            color: #1F2A44;
+            font-size: 24px;
+        }
+
+        .info {
+            margin-top: 10px;
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .paleta {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cor_paleta {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h1>ColorpediaByEryka</h1>
+
+
+        <input id="input_cor" type="text" placeholder="Digite uma cor"><br>
+
+        <br>
+
+        <button onclick="buscarCor()">
+            Buscar
+        </button>
+
+        <div id="div_output">
+
+            <h2 id="titulo_cor" class="titulo"></h2>
+
+            <div id="amostra_cor"></div>
+
+            <div class="info" id="codigo_hex"></div>
+
+            <div class="info" id="codigo_rgb"></div>
+
+            <div class="info" id="historia"></div>
+
+            <div class="info" id="significado"></div>
+
+            <div class="info" id="psicologia"></div>
+
+            <div class="info" id="curiosidade"></div>
+
+            <div class="info" id="emocao"></div>
+
+            <h3> Paleta de Cores</h3>
+
+            <div class="paleta">
+
+                <div id="paleta1" class="cor_paleta"></div>
+
+                <div id="paleta2" class="cor_paleta"></div>
+
+                <div id="paleta3" class="cor_paleta"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <img onclick="voltar()" class="seta" src="Fotos/paletadecores.png">
+    <script>
+        function voltar() {
+            window.location.href = "../../dashboard/cards.html";
+        }
+    </script>
+
+</body>
+
+<script>
+
+    const cores = {
+
+        vermelho: {
+
+            hex: "#FF0000",
+
+            rgb: "rgb(255,0,0)",
+
+            historia:
+                "O vermelho é uma das cores mais antigas utilizadas pela humanidade. Era associado ao fogo e ao sangue.",
+
+            significado:
+                "Paixão, energia, força e amor.",
+
+            psicologia:
+                "Estimula atenção e aumenta sensação de urgência.",
+
+            curiosidade:
+                "Muito usado em placas de perigo e promoções.",
+
+            emocao:
+                "Paixão |Energia |Poder",
+
+            paleta:
+                ["#FF0000", "#FF6666", "#990000"]
+        },
+
+        azul: {
+
+            hex: "#0000FF",
+
+            rgb: "rgb(0,0,255)",
+
+            historia:
+                "Na antiguidade, pigmentos azuis eram raros e muito valiosos.",
+
+            significado:
+                "Calma, confiança e inteligência.",
+
+            psicologia:
+                "Empresas de tecnologia usam azul para transmitir segurança.",
+
+            curiosidade:
+                "O Facebook utiliza azul por causa do daltonismo de Mark Zuckerberg.",
+
+            emocao:
+                " Calma | Inteligência |Segurança",
+
+            paleta:
+                ["#0000FF", "#66B2FF", "#001F5B"]
+        },
+
+        verde: {
+
+            hex: "#00AA00",
+
+            rgb: "rgb(0,170,0)",
+
+            historia:
+                "O verde sempre foi associado à natureza e fertilidade.",
+
+            significado:
+                "Esperança, saúde e equilíbrio.",
+
+            psicologia:
+                "Ajuda na sensação de relaxamento.",
+
+            curiosidade:
+                "Muito usado em hospitais e áreas de saúde.",
+
+            emocao:
+                "Natureza | Equilíbrio | Saúde",
+
+            paleta:
+                ["#00AA00", "#66FF66", "#004400"]
+        },
+
+        branco: {
+
+            hex: "#FFFFFF",
+
+            rgb: "rgb(255,255,255)",
+
+            historia:
+                "O branco sempre esteve associado à pureza e à luz em diversas culturas antigas.",
+
+            significado:
+                "Paz, pureza e simplicidade.",
+
+            psicologia:
+                "Transmite sensação de limpeza, organização e tranquilidade.",
+
+            curiosidade:
+                "Hospitais usam branco para reforçar sensação de higiene e segurança.",
+
+            emocao:
+                " Paz | Pureza | Calmaria",
+
+            paleta:
+                ["#FFFFFF", "#F5F5F5", "#DCDCDC"]
+        },
+
+        preto: {
+
+            hex: "#000000",
+
+            rgb: "rgb(0,0,0)",
+
+            historia:
+                "Associado ao mistério e elegância desde tempos antigos.",
+
+            significado:
+                "Poder, sofisticação e autoridade.",
+
+            psicologia:
+                "Muito usado em marcas de luxo.",
+
+            curiosidade:
+                "O preto absorve mais calor que outras cores.",
+
+            emocao:
+                "Elegância | Poder | Mistério",
+
+            paleta:
+                ["#000000", "#555555", "#222222"]
+        },
+
+        amarelo: {
+
+            hex: "#FFFF00",
+
+            rgb: "rgb(255,255,0)",
+
+            historia:
+                "Muito utilizado em pinturas antigas por representar ouro e riqueza.",
+
+            significado:
+                "Alegria, criatividade e otimismo.",
+
+            psicologia:
+                "Atrai rapidamente a atenção humana.",
+
+            curiosidade:
+                "McDonald's usa amarelo para estimular felicidade.",
+
+            emocao:
+                "Alegria | Otimismo |  Criatividade",
+
+            paleta:
+                ["#FFFF00", "#FFF799", "#BBAA00"]
+        },
+
+        roxo: {
+
+            hex: "#800080",
+
+            rgb: "rgb(128,0,128)",
+
+            historia:
+                "O roxo era considerado uma cor nobre na antiguidade por causa do alto custo dos pigmentos.",
+
+            significado:
+                "Luxo, espiritualidade e criatividade.",
+
+            psicologia:
+                "Estimula imaginação e sensação de sofisticação.",
+
+            curiosidade:
+                "Na Roma Antiga, apenas imperadores podiam usar roupas roxas.",
+
+            emocao:
+                "Luxo | Mistério | Criatividade",
+
+            paleta:
+                ["#800080", "#C266FF", "#4B004B"]
+        },
+
+
+
+        laranja: {
+
+            hex: "#FFA500",
+
+            rgb: "rgb(255,165,0)",
+
+            historia:
+                "O nome da cor laranja surgiu por causa da fruta laranja.",
+
+            significado:
+                "Energia, entusiasmo e diversão.",
+
+            psicologia:
+                "Muito usada para transmitir criatividade e animação.",
+
+            curiosidade:
+                "É bastante utilizada em botões de chamada de atenção em sites.",
+
+            emocao:
+                "Energia | Diversão | Entusiasmo",
+
+            paleta:
+                ["#FFA500", "#FFD27F", "#CC6600"]
+        },
+
+
+
+        violeta: {
+
+            hex: "#8F00FF",
+
+            rgb: "rgb(143,0,255)",
+
+            historia:
+                "O violeta sempre esteve ligado à espiritualidade e ao misticismo.",
+
+            significado:
+                "Sabedoria, transformação e espiritualidade.",
+
+            psicologia:
+                "Associado à meditação e introspecção.",
+
+            curiosidade:
+                "É uma das cores mais presentes em temas futuristas.",
+
+            emocao:
+                "Espiritualidade | Sabedoria | Mistério",
+
+            paleta:
+                ["#8F00FF", "#C77DFF", "#4B0082"]
+        },
+
+
+
+        rosa: {
+
+            hex: "#FF69B4",
+
+            rgb: "rgb(255,105,180)",
+
+            historia:
+                "O rosa se popularizou na moda europeia durante o século XVIII.",
+
+            significado:
+                "Amor, delicadeza e romantismo.",
+
+            psicologia:
+                "Transmite suavidade e sensação de carinho.",
+
+            curiosidade:
+                "O rosa choque virou símbolo cultural nos anos 80.",
+
+            emocao:
+                "Amor | Delicadeza | Carinho",
+
+            paleta:
+                ["#FF69B4", "#FFC0CB", "#CC3366"]
+        },
+
+        marrom: {
+
+            hex: "#8B4513",
+
+            rgb: "rgb(139,69,19)",
+
+            historia:
+                "O marrom é uma das cores mais antigas usadas em pinturas rupestres e pigmentos naturais.",
+
+            significado:
+                "Estabilidade, conforto e conexão com a terra.",
+
+            psicologia:
+                "Transmite segurança, simplicidade e resistência.",
+
+            curiosidade:
+                "Muito usado em cafeterias por lembrar café e chocolate.",
+
+            emocao:
+                " Natureza | Conforto | Estabilidade",
+
+            paleta:
+                ["#8B4513", "#C68642", "#5C3317"]
+        },
+
+
+
+        bege: {
+
+            hex: "#F5F5DC",
+
+            rgb: "rgb(245,245,220)",
+
+            historia:
+                "O bege ficou popular na decoração por transmitir neutralidade e elegância.",
+
+            significado:
+                "Calma, leveza e sofisticação.",
+
+            psicologia:
+                "Ajuda a criar ambientes acolhedores e tranquilos.",
+
+            curiosidade:
+                "Muito usado em design minimalista e decoração moderna.",
+
+            emocao:
+                " Paz | Conforto | Elegância",
+
+            paleta:
+                ["#F5F5DC", "#E8DCC4", "#C2B280"]
+        },
+
+
+
+        "verde-agua": {
+
+            hex: "#00FFCC",
+
+            rgb: "rgb(0,255,204)",
+
+            historia:
+                "O verde-água se tornou popular em artes e design modernos por lembrar o oceano tropical.",
+
+            significado:
+                "Frescura, tranquilidade e renovação.",
+
+            psicologia:
+                "Transmite sensação de relaxamento e limpeza.",
+
+            curiosidade:
+                "Muito utilizado em spas e clínicas estéticas.",
+
+            emocao:
+                "Frescor | Relaxamento |Renovação",
+
+            paleta:
+                ["#00FFCC", "#99FFF0", "#008B8B"]
+        },
+
+
+
+        turquesa: {
+
+            hex: "#40E0D0",
+
+            rgb: "rgb(64,224,208)",
+
+            historia:
+                "O nome vem da pedra preciosa turquesa, valorizada há milhares de anos.",
+
+            significado:
+                "Equilíbrio, proteção e criatividade.",
+
+            psicologia:
+                "Combina a calma do azul com a energia do verde.",
+
+            curiosidade:
+                "Muito presente em decorações praianas e tropicais.",
+
+            emocao:
+                " Tropical |Elegância | Calma",
+
+            paleta:
+                ["#40E0D0", "#7FFFD4", "#008B8B"]
+        },
+
+
+
+        marsala: {
+
+            hex: "#8E3143",
+
+            rgb: "rgb(142,49,67)",
+
+            historia:
+                "A cor marsala ganhou destaque mundial após ser escolhida como cor do ano pela Pantone em 2015.",
+
+            significado:
+                "Sofisticação, elegância e poder.",
+
+            psicologia:
+                "Transmite luxo e profundidade emocional.",
+
+            curiosidade:
+                "Recebe esse nome por lembrar o vinho italiano Marsala.",
+
+            emocao:
+                " Sofisticação | Elegância | Intensidade",
+
+            paleta:
+                ["#8E3143", "#C08081", "#5C1A27"]
+        },
+
+        lilas: {
+
+            hex: "#C8A2C8",
+
+            rgb: "rgb(200,162,200)",
+
+            historia:
+                "O lilás ficou popular na arte e na moda por representar delicadeza e espiritualidade.",
+
+            significado:
+                "Sensibilidade, feminilidade e tranquilidade.",
+
+            psicologia:
+                "Ajuda a transmitir calma emocional e criatividade.",
+
+            curiosidade:
+                "Muito utilizado em temas românticos e decoração suave.",
+
+            emocao:
+                " Delicadeza | Calmaria |Criatividade",
+
+            paleta:
+                ["#C8A2C8", "#E6CCE6", "#9370DB"]
+        },
+
+
+        royalBlue: {
+            rgbArray: [65, 105, 225],
+            historia: "Associado à realeza e ao poder desde o século XVIII.",
+            significado: "Autoridade, confiança e liderança.",
+            psicologia: "Transmite segurança e estabilidade.",
+            curiosidade: "Muito usado em uniformes e tecnologia.",
+            emocao: "Confiança | Poder | Estabilidade",
+            paleta: ["#4169E1", "#6A8DFF", "#27408B"]
+        },
+
+        dodgerBlue: {
+            rgbArray: [30, 144, 255],
+            historia: "Popular em esportes e design digital moderno.",
+            significado: "Energia e modernidade.",
+            psicologia: "Estimula foco e atenção.",
+            curiosidade: "Muito usado em interfaces digitais.",
+            emocao: "Agilidade | Energia | Foco",
+            paleta: ["#1E90FF", "#66B2FF", "#0F5FBF"]
+        },
+
+        deepSkyBlue: {
+            rgbArray: [0, 191, 255],
+            historia: "Inspirado no céu aberto e claro.",
+            significado: "Liberdade e leveza.",
+            psicologia: "Reduz ansiedade visual.",
+            curiosidade: "Muito usado em UI design.",
+            emocao: "Leveza | Liberdade | Frescor",
+            paleta: ["#00BFFF", "#66D9FF", "#0077CC"]
+        },
+
+        skyBlue: {
+            rgbArray: [135, 206, 235],
+            historia: "Cor do céu em dias claros.",
+            significado: "Calma e tranquilidade.",
+            psicologia: "Relaxamento emocional.",
+            curiosidade: "Usado em ambientes infantis.",
+            emocao: "Paz | Calma | Harmonia",
+            paleta: ["#87CEEB", "#B0E0E6", "#5DADE2"]
+        },
+
+        lightBlue: {
+            rgbArray: [173, 216, 230],
+            historia: "Associado à leveza e suavidade.",
+            significado: "Serenidade e paz.",
+            psicologia: "Reduz tensão mental.",
+            curiosidade: "Muito usado em hospitais.",
+            emocao: "Calma | Suavidade | Paz",
+            paleta: ["#ADD8E6", "#D6F0FF", "#7EC8E3"]
+        },
+
+        steelBlue: {
+            rgbArray: [70, 130, 180],
+            historia: "Nome inspirado no aço industrial.",
+            significado: "Força e confiabilidade.",
+            psicologia: "Estimula concentração.",
+            curiosidade: "Muito usado em tecnologia.",
+            emocao: "Força | Estabilidade | Foco",
+            paleta: ["#4682B4", "#6FA8DC", "#2F5F8F"]
+        },
+
+        slateGray: {
+            rgbArray: [112, 128, 144],
+            historia: "Cor neutra usada em arquitetura moderna.",
+            significado: "Neutralidade e equilíbrio.",
+            psicologia: "Reduz estímulos visuais.",
+            curiosidade: "Muito usada em UI minimalista.",
+            emocao: "Equilíbrio | Neutralidade | Calma",
+            paleta: ["#708090", "#A9B7C0", "#4B5B6B"]
+        },
+
+        cyan: {
+            rgbArray: [0, 255, 255],
+            historia: "Cor digital RGB muito usada em telas.",
+            significado: "Tecnologia e energia.",
+            psicologia: "Estimula atenção visual.",
+            curiosidade: "Muito comum em efeitos neon.",
+            emocao: "Energia | Futuro | Vibração",
+            paleta: ["#00FFFF", "#66FFFF", "#00CCCC"]
+        },
+
+        turquoise: {
+            rgbArray: [64, 224, 208],
+            historia: "Associado ao mar tropical.",
+            significado: "Equilíbrio e frescor.",
+            psicologia: "Relaxamento e bem-estar.",
+            curiosidade: "Muito usado em spas.",
+            emocao: "Frescor | Paz | Harmonia",
+            paleta: ["#40E0D0", "#7FFFD4", "#20B2AA"]
+        },
+
+        teal: {
+            rgbArray: [0, 128, 128],
+            historia: "Mistura de azul e verde.",
+            significado: "Equilíbrio e sofisticação.",
+            psicologia: "Foco e clareza mental.",
+            curiosidade: "Muito usado em startups.",
+            emocao: "Equilíbrio | Profundidade | Estabilidade",
+            paleta: ["#008080", "#20B2AA", "#2E8B8B"]
+        },
+
+        aquamarine: {
+            rgbArray: [127, 255, 212],
+            historia: "Inspirado em águas cristalinas.",
+            significado: "Leveza e pureza.",
+            psicologia: "Relaxamento visual.",
+            curiosidade: "Muito usada em joias.",
+            emocao: "Leveza | Pureza | Calma",
+            paleta: ["#7FFFD4", "#B2FFF0", "#66CDAA"]
+        },
+
+        mediumSeaGreen: {
+            rgbArray: [60, 179, 113],
+            historia: "Cor natural da vegetação.",
+            significado: "Vida e crescimento.",
+            psicologia: "Equilíbrio emocional.",
+            curiosidade: "Muito usada em sustentabilidade.",
+            emocao: "Vida | Crescimento | Natureza",
+            paleta: ["#3CB371", "#66CDAA", "#2E8B57"]
+        },
+
+        forestGreen: {
+            rgbArray: [34, 139, 34],
+            historia: "Representa florestas densas.",
+            significado: "Natureza e estabilidade.",
+            psicologia: "Sensação de segurança.",
+            curiosidade: "Muito usada em ecologia.",
+            emocao: "Natureza | Segurança | Vida",
+            paleta: ["#228B22", "#32CD32", "#006400"]
+        },
+
+        lime: {
+            rgbArray: [0, 255, 0],
+            historia: "Cor vibrante digital.",
+            significado: "Energia e vida.",
+            psicologia: "Estimula atenção.",
+            curiosidade: "Muito usado em jogos.",
+            emocao: "Energia | Vitalidade | Criatividade",
+            paleta: ["#00FF00", "#7CFC00", "#32CD32"]
+        },
+
+        chartreuse: {
+            rgbArray: [127, 255, 0],
+            historia: "Nome vindo de um licor francês.",
+            significado: "Criatividade e energia.",
+            psicologia: "Estimula ação.",
+            curiosidade: "Muito chamativa visualmente.",
+            emocao: "Energia | Destaque | Criatividade",
+            paleta: ["#7FFF00", "#ADFF2F", "#66CC00"]
+        },
+
+        gold: {
+            rgbArray: [255, 215, 0],
+            historia: "Símbolo de riqueza antiga.",
+            significado: "Luxo e sucesso.",
+            psicologia: "Sensação de valor.",
+            curiosidade: "Usado em premiações.",
+            emocao: "Luxo | Vitória | Sucesso",
+            paleta: ["#FFD700", "#FFEC8B", "#DAA520"]
+        },
+
+        orange: {
+            rgbArray: [255, 165, 0],
+            historia: "Associado ao fogo e ao pôr do sol.",
+            significado: "Criatividade e entusiasmo.",
+            psicologia: "Estimula ação.",
+            curiosidade: "Muito usado em marketing.",
+            emocao: "Energia | Criatividade | Movimento",
+            paleta: ["#FFA500", "#FFB84D", "#CC8400"]
+        },
+
+        red: {
+            rgbArray: [255, 0, 0],
+            historia: "Uma das cores mais fortes visualmente.",
+            significado: "Paixão e urgência.",
+            psicologia: "Aumenta atenção.",
+            curiosidade: "Muito usado em alertas.",
+            emocao: "Paixão | Energia | Urgência",
+            paleta: ["#FF0000", "#FF4D4D", "#990000"]
+        },
+
+        pink: {
+            rgbArray: [255, 192, 203],
+            historia: "Associado ao romantismo.",
+            significado: "Afeto e suavidade.",
+            psicologia: "Sensação de calma emocional.",
+            curiosidade: "Muito usado em moda.",
+            emocao: "Amor | Doçura | Afeto",
+            paleta: ["#FFC0CB", "#FFB6C1", "#FF69B4"]
+        },
+
+        purple: {
+            rgbArray: [128, 0, 128],
+            historia: "Cor histórica da realeza.",
+            significado: "Mistério e poder.",
+            psicologia: "Estimula imaginação.",
+            curiosidade: "Muito usada em criatividade.",
+            emocao: "Mistério | Luxo | Criatividade",
+            paleta: ["#800080", "#BA55D3", "#DA70D6"]
+        },
+
+        violet: {
+            rgbArray: [238, 130, 238],
+            historia: "Ligada ao espiritual.",
+            significado: "Intuição e sensibilidade.",
+            psicologia: "Estimula imaginação.",
+            curiosidade: "Muito usada em artes.",
+            emocao: "Espiritualidade | Criatividade | Sensibilidade",
+            paleta: ["#EE82EE", "#DDA0DD", "#BA55D3"]
+        },
+
+        indigo: {
+            rgbArray: [75, 0, 130],
+            historia: "Cor profunda entre azul e roxo.",
+            significado: "Intuição e profundidade.",
+            psicologia: "Estimula reflexão.",
+            curiosidade: "Muito usada em meditação.",
+            emocao: "Profundidade | Mistério | Reflexão",
+            paleta: ["#4B0082", "#6A5ACD", "#483D8B"]
+        },
+
+        brown: {
+            rgbArray: [165, 42, 42],
+            historia: "Cor da terra e madeira.",
+            significado: "Estabilidade e conforto.",
+            psicologia: "Sensação de segurança.",
+            curiosidade: "Muito usada em design rústico.",
+            emocao: "Conforto | Segurança | Terra",
+            paleta: ["#A52A2A", "#8B4513", "#D2691E"]
+        },
+
+        white: {
+            rgbArray: [255, 255, 255],
+            historia: "Símbolo universal de pureza.",
+            significado: "Paz e simplicidade.",
+            psicologia: "Clareza visual.",
+            curiosidade: "Muito usado em minimalismo.",
+            emocao: "Pureza | Paz | Simplicidade",
+            paleta: ["#FFFFFF", "#F5F5F5", "#E0E0E0"]
+        }
+
+    };
+
+
+
+    function buscarCor() {
+
+        div_output.innerHTML = `
+            <h2 id="titulo_cor" class="titulo"></h2>
+
+            <div id="amostra_cor"></div>
+
+            <div class="info" id="codigo_hex"></div>
+
+            <div class="info" id="codigo_rgb"></div>
+
+            <div class="info" id="historia"></div>
+
+            <div class="info" id="significado"></div>
+
+            <div class="info" id="psicologia"></div>
+
+            <div class="info" id="curiosidade"></div>
+
+            <div class="info" id="emocao"></div>
+
+            <h3> Paleta de Cores</h3>
+
+            <div class="paleta">
+
+                <div id="paleta1" class="cor_paleta"></div>
+
+                <div id="paleta2" class="cor_paleta"></div>
+
+                <div id="paleta3" class="cor_paleta"></div>
+
+            </div>
+        `;
+
+        let corDigitada = input_cor.value.toLowerCase();
+
+        let dados = cores[corDigitada];
+
+
+
+        if (dados) {
+
+            div_output.style.display = "block";
+
+            document.body.style.backgroundColor = dados.hex;
+
+            titulo_cor.innerHTML =
+                "Sua Cor:" + " " + corDigitada.toUpperCase();
+
+            codigo_hex.innerHTML =
+                "<b>HEX:</b> " + dados.hex;
+
+            codigo_rgb.innerHTML =
+                "<b>RGB:</b> " + dados.rgb;
+
+            historia.innerHTML =
+                "<b>História:</b> " + dados.historia;
+
+            significado.innerHTML =
+                "<b>Significado:</b> " + dados.significado;
+
+            psicologia.innerHTML =
+                "<b>Psicologia:</b> " + dados.psicologia;
+
+            curiosidade.innerHTML =
+                "<b>Curiosidade:</b> " + dados.curiosidade;
+
+            emocao.innerHTML =
+                "<b>Emoções:</b> " + dados.emocao;
+
+            amostra_cor.style.backgroundColor =
+                dados.hex;
+
+            paleta1.style.backgroundColor =
+                dados.paleta[0];
+
+            paleta2.style.backgroundColor =
+                dados.paleta[1];
+
+            paleta3.style.backgroundColor =
+                dados.paleta[2];
+
+        }
+
+        else {
+
+            div_output.style.display = "block";
+
+            div_output.innerHTML = `
+                <h2>
+                Cor não encontrada!
+                </h2>
+
+                <p>
+                    Tente:
+                    vermelho,
+                    azul,
+                    verde,
+                    branco,
+                    preto,
+                    amarelo,
+                    roxo,
+                    laranja,
+                    rosa,
+                    violeta,
+                    marrom, 
+                    bege, 
+                    verde-agua, 
+                    turquesa, 
+                    marsala,
+                    lilas
+                </p>
+            `;
+        }
+    }
+
+
+    function conversao() {
+        let divisão = 16;
+        let resultado = dados.hex / 16;
+
+
+    }
+
+
+
+</script>
+
+</html>

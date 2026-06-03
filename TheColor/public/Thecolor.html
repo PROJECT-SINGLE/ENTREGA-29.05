@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TheColors צְבָעִים  | Informações</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="./assets/icon/favicon2.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: radial-gradient(circle at top, #020212, #100b01);
+            color: white;
+        }
+
+        .quizheader {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .quizheader h1 {
+            font-size: 40px;
+            letter-spacing: 2px;
+        }
+
+        .quizheader button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #a98909, #ed9c3a);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .quiz {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .quizcard {
+            background: rgba(26, 144, 213, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quizcard h2 {
+            font-size: 18px;
+        }
+
+        .quizcard button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #3d382b;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .quizcard button:hover {
+            background: #4f46e5;
+        }
+
+        .quizresult {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .quizhouse {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!--header inicio-->
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">TheColors צְבָעִים </h1>
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html">Inicial</a>
+                </li>
+                <li class="agora">TheColors</li>
+                <li>|</li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="./login.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="quizheader">
+        <h1>WHAT'S YOUR COLOR?<br>
+            QUAL SUA COR?
+        </h1>
+        “Quer se cadastrar? Faça o QUIZ e desbloqueie seu código de ativação!”.<br><br>
+        <button onclick="finalizar()">VEJA SUA COMBINAÇÃO</button>
+    </div>
+
+    <div class="quiz">
+
+        <div class="quizcard">
+            <h2>1. Qual cor te representa mais?</h2>
+            <button onclick="responder('r')">Vermelho</button>
+            <button onclick="responder('g')">Verde</button>
+            <button onclick="responder('b')">Azul</button>
+            <button onclick="responder('y')">Amarelo</button>
+        </div>
+
+        <div class="quizcard">
+            <h2>2. Qual ambiente você prefere?</h2>
+            <button onclick="responder('g')">Floresta</button>
+            <button onclick="responder('b')">Mar</button>
+            <button onclick="responder('y')">Sol</button>
+            <button onclick="responder('r')">Fogo</button>
+        </div>
+
+        <div class="quizcard">
+            <h2>3. Sua personalidade é mais:</h2>
+            <button onclick="responder('r')">Corajosa</button>
+            <button onclick="responder('y')">Feliz</button>
+            <button onclick="responder('b')">Calma</button>
+            <button onclick="responder('g')">Ambiciosa</button>
+        </div>
+
+        <div class="quizcard">
+            <h2>4. Qual energia você sente mais?</h2>
+            <button onclick="responder('b')">Inteligência</button>
+            <button onclick="responder('g')">Estratégia</button>
+            <button onclick="responder('r')">Força</button>
+            <button onclick="responder('y')">Alegria</button>
+        </div>
+
+    </div>
+
+
+        <div class="quizresult" id="quizresult"></div>
+
+    <!-- simulador inicio -->
+    <div class="simulador">
+        <div class="container">
+            <h2>TheColors צְבָעִים </h2>
+            <p>O presente projeto teve como finalidade o desenvolvimento de um site institucional voltado ao estudo das
+                cores, abordando sua importância na percepção visual, na comnicação e na experiência humana. Ao longo do trabalho
+                foram explorados conceitos teóricos relacionados à Teoria da Cor, bem como suas aplicações práticas em àreas como 
+                Arquitetura, Design e Tecnologia, além de reflexões sobre acessibilidade visual e inclusão.
+            </p>
+            <p>Destaca-se ainda que este projeto apresenta um marco importante na trajetória da autora Eryka Lima, que sempre teve
+                uma forte relação com as cores, embora esta seja a primeira vez em que o tema é abordado de forma estruturada e aprofundada.
+                O site torna-se, portanto, um meio de materializar experiências que antes eram apenas intuitivas e pessoais, 
+                transformando-as em conhecimento organizado e acessível.
+            </p>
+
+            <p>Eryka Lima é apresentada no projeto The Colors como uma autora com visão e propósito, que soube trnasformar momentos
+                difíceis em oportunidades de recomeço. Sua trajetória revela uma mulher que enfrentou um período em que sua vida parecia "cinza",
+                mas que decidiu mudar essa realidade ao buscar novos caminhos, tanto no âmbito pessoal quanto espiritual.
+                Ao aceitar JESUS, Eryka passou a enxergar sua vida sib uma nova perspectiva, reconhecendo Deus como "pintor" de uma história.
+                Essa transformação espiritual influenciou diretamente sua forma de ver o mundo e também sua produção criativa, dando um novo
+                significado às cores, que deixaram de ser apenas elementos visuais e passaram a representar sentimentos, recomeços e identidade.
+            </p>
+
+            <div>
+                       <img src="./conteudo/Fotos/erykalima.png" alt="Eryka Lima">
+            </div>
+            
+            <p>Assim, conclui-se que o projeto cumpre seu papel ao unir conteúdo teórico, prático de desenvolvimento web e narrativa pessoal, 
+                reforçando a ideia de que as cores são uma linguagem viva, presente em todas as dimensões da vida. Mais do que um estudo
+                técnico, este trabalho representa um processo de autoconhecimento e expressões, no qual as cores se tornam não apenas objeto
+                de estudo, mas também parte essencial da identidade da autora.
+            </p>
+
+            <p>E AGORA, VOCÊ É O CONVIDADO HÁ EXPLORAR ESSE CONTEÚDO! VAMOS LÁ!! CADASTRE-SE OU FAÇA O LOGIN.
+            </p>
+
+        </div>
+    </div>
+    <!-- simulador fim -->
+
+
+
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="container">
+              <h4>Que o Senhor te Abençoe!! &hearts; SPTech &copy; 2026</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
+    <!--footer fim-->
+
+
+</body>
+
+</html>
+
+<script>
+
+        let pontos = {
+            r: 0,
+            g: 0,
+            b: 0,
+            y: 0
+        };
+
+        function responder(casa) {
+            pontos[casa] += 1;
+        }
+
+        function finalizar() {
+
+            let total = pontos.r + pontos.g + pontos.b + pontos.y;
+
+            // proteção contra erro (se nada foi clicado)
+            if (total === 0) {
+                quizquizquizresult.innerHTML = "<h2>Responda o quiz primeiro!</h2>";
+                return;
+            }
+
+            let pr = pontos.r / total;
+            let pg = pontos.g / total;
+            let pb = pontos.b / total;
+            let py = pontos.y / total;
+
+            let vermelho = [255, 0, 0];
+            let verde = [0, 255, 0];
+            let azul = [0, 0, 255];
+            let amarelo = [255, 255, 0];
+
+            let r = Math.round(
+                vermelho[0] * pr +
+                verde[0] * pg +
+                azul[0] * pb +
+                amarelo[0] * py
+            );
+
+            let g = Math.round(
+                vermelho[1] * pr +
+                verde[1] * pg +
+                azul[1] * pb +
+                amarelo[1] * py
+            );
+
+            let b = Math.round(
+                vermelho[2] * pr +
+                verde[2] * pg +
+                azul[2] * pb +
+                amarelo[2] * py
+            );
+
+            let corFinal = `rgb(${r},${g},${b})`;
+
+            quizresult.innerHTML = `
+                <h2 class="quizheader">SUA COR FOI DEFINIDA!</h2>
+
+                <div class="quizhouse">🔴 Vermelho<br>${Math.round(pr * 100)}%</div>
+                <div class="quizhouse">🟢 Verde<br>${Math.round(pg * 100)}%</div>
+                <div class="quizhouse">🔵 Azul<br>${Math.round(pb * 100)}%</div>
+                <div class="quizhouse">🟡 Amarelo<br>${Math.round(py * 100)}%</div>
+
+                <h2 class="quizheader">SUA COR FINAL<br>
+                            CÓDIGO PARA CADASTRO: <br><br>TH3O58 <br></h2>
+
+                <div style="
+                    width:200px;
+                    height:200px;
+                    margin:auto;
+                    border-radius:20px;
+                    background:${corFinal};
+                    box-shadow:0 0 20px ${corFinal};
+                "></div>
+
+                <p class="quizheader">${corFinal}</p>
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>

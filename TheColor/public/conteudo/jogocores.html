@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório das Cores</title>
+
+    <link rel="stylesheet" href="cores.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>LABORATÓRIO DAS CORES</h1>
+
+        <div class="painel">
+
+            <div class="card">
+                <h2>Cor Alvo</h2>
+
+                <div id="corAlvo" class="cor-box"></div>
+
+                <p id="nomeAlvo"></p>
+            </div>
+
+            <div class="card">
+                <h2>Sua Mistura</h2>
+
+                <div id="misturaAtual" class="cor-box"></div>
+
+                <p id="rgbAtual"></p>
+            </div>
+
+        </div>
+
+        <div class="botoes" id="areaBotoes"></div>
+
+        <div class="acoes">
+
+            <button onclick="verificarCor()">
+                VERIFICAR
+            </button>
+
+            <button onclick="limparMistura()">
+                RESETAR
+            </button>
+
+        </div>
+
+        <div class="info">
+
+            <div class="box-info">
+                <h3>PONTOS</h3>
+                <p id="pontuacao">0</p>
+            </div>
+
+            <div class="box-info">
+                <h3>TEMPO</h3>
+                <p id="tempo">30</p>
+            </div>
+
+            <div class="box-info">
+                <h3>RANKING</h3>
+                <p id="ranking">0</p>
+            </div>
+
+        </div>
+
+        <div class="historico">
+
+            <h2>Histórico</h2>
+
+            <div id="listaHistorico"></div>
+
+        </div>
+
+        <div id="mensagem"></div>
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/assets/icon/favicon2.ico?v=2">
+
+    <link rel="stylesheet" href="style_conteudo.css" />
+    <title>TheColor</title>
+
+
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+            <h1>
+                Bem-vindo <br>
+                ao Seu Estudo
+            </h1>
+
+            <p>
+                Explore o universo das <span>cores</span>,
+                descubra emoções, significados, histórias
+                e aprenda como elas influenciam a arte,
+                o design e o nosso dia a dia.
+            </p>
+
+        </div>
+
+        <img onclick="voltar()" class="seta" src="paletadecores.png">
+        <script>
+            function voltar() {
+                window.location.href = "cards.html";
+            }
+        </script>
+
+    </section>
+
+    <!-- QUIZ -->
+    <section class="quiz-section">
+
+        <h2 class="quiz-title">
+            Qual seu nível de conhecimento?
+        </h2>
+
+        <p class="quiz-subtitle">
+            Escolha uma porcentagem abaixo e desbloqueie
+            conteúdos personalizados para sua jornada artística
+        </p>
+
+        <div class="levels">
+
+            <button class="level-btn" onclick="showCards(3)">
+                0%
+            </button>
+
+            <button class="level-btn" onclick="showCards(7)">
+                25%
+            </button>
+
+            <button class="level-btn" onclick="showCards(12)">
+                50%
+            </button>
+
+            <button class="level-btn" onclick="showCards(17)">
+                75%
+            </button>
+
+            <button class="level-btn" onclick="showCards(21)">
+                100%
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- STUDY -->
+    <section class="study-section" id="studySection">
+
+        <h2 class="study-title">
+            Conteúdos Liberados
+        </h2>
+        <br>
+
+        <div class="cards" id="cardsContainer"></div>
+
+
+
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>O Maior Pintor do Mundo</span>
+        está pintando a sua história
+    </footer>
+
+
+
+    <script>
+
+        // CONTEÚDOS
+        const estudos = [
+
+            {
+                // 01
+                color: "#ffb5e8",
+                title: "O que é Cor",
+                description: "Vamo aprender o que é cor.",
+                link: "conteudo1/conteudo1.html"
+            },
+
+            {
+                // 02
+                color: "#fff5ba",
+                title: "História das Cores",
+                description: "Descubra como as cores surgiram ao longo da humanidade.",
+                link: "conteudo2/conteudo2.html"
+            },
+
+            {
+                // 03
+                color: "#b28dff",
+                title: "Cores Primárias",
+                description: "Aprenda sobre cores cheias de energia e intensidade.",
+                link: "conteudo3/conteudo3.html"
+            },
+
+            {
+                // 04
+                color: "#dcd3ff",
+                title: "Cores Secundárias",
+                description: "Conheça cores ligadas à calma e equilíbrio.",
+                link: "conteudo4/conteudo4.html"
+            },
+
+            {
+                // 05
+                color: "#aff8db",
+                title: "Cores Quentes e Frias",
+                description: "Descubra a diferença dessas cores.",
+                link: "conteudo5/conteudo5.html"
+            },
+
+            {
+                // 06
+                color: "#bffcc6",
+                title: "Psicologia das Cores",
+                description: "Entenda como as cores influenciam emoções.",
+                link: "conteudo6/conteudo6.html"
+            },
+
+            {
+                // 07
+                color: "#ffc9de",
+                title: "Cores na Decoração",
+                description: "Aprenda sobre ambientes e emoções.",
+                link: "conteudo7/conteudo7.html"
+
+            },
+
+            {
+                // 08
+                color: "#c5a3ff",
+                title: "Cores na Tecnologia",
+                description: "Descubra como o AZUL domina a tecnologia.",
+                link: "conteudo8/conteudo8.html"
+            },
+
+            {
+                // 09
+                color: "#a79aff",
+                title: "Cores no Cinema",
+                description: "Conheça um pouco do seu uso.",
+                link: "conteudo9/conteudo9.html"
+            },
+
+            {
+                // 10
+                color: "#c4faf8",
+                title: "Cores no Design",
+                description: "Técnicas para combinar cores corretamente.",
+                link: "conteudo10/conteudo10.html"
+            },
+
+            {
+                // 11
+                color: "#dbffd6",
+                title: "Cores Estudo Biblico",
+                description: "Como aas cores são trabalhadas na Biblia.",
+                link: "conteudo11/conteudo11.html"
+            },
+
+            {
+                // 12
+                color: "#ffabab",
+                title: "Cores em Corais",
+                description: "Como o Louvor se organiza na igreja.",
+                link: "conteudo12/conteudo12.html"
+            },
+
+            {
+                // 13
+                color: "#ffccf9",
+                title: "Marketing das Cores",
+                description: "Como marcas usam cores para vender.",
+                link: "conteudo13/conteudo13.html"
+            },
+
+            {
+                // 14
+                color: "#d5aaff",
+                title: "Mutação Cromática",
+                description: "Paletas modernas para interfaces.",
+                link: "conteudo14/conteudo14.html"
+            },
+
+            {
+                // 15
+                color: "#85e3ff",
+                title: "Luz e Sombra",
+                description: "A relação entre Luz e Sombra.",
+                link: "conteudo15/conteudo15.html"
+            },
+
+            {
+                // 16
+                color: "#f3ffe3",
+                title: "Daltonismo",
+                description: "As cores no mundo Daltonico.",
+                link: "conteudo16/conteudo16.html"
+            },
+
+            {
+                // 17
+                color: "#ffbebc",
+                title: "Cores na Natureza",
+                description: "Descubra por que das cores diferentes.",
+                link: "conteudo17/conteudo17.html"
+            },
+
+            {
+                // 18
+                color: "#fcc2ff",
+                title: "Cores Culturais",
+                description: "Como diferentes povos interpretam as cores.",
+                link: "conteudo18/conteudo18.html"
+            },
+
+            {
+                // 19
+                color: "#ecd4ff",
+                title: "RGB e CMYK",
+                description: "Os sistemas de cores digitais.",
+                link: "conteudo19/conteudo19.html"
+            },
+
+            {
+                // 20
+                color: "#ace7ff",
+                title: "Cores nos Games",
+                description: "Evolução dos Jogos.",
+                link:"conteudo20/conteudo20.html"
+            },
+
+            {
+                // 21
+                color: "#e7ffac",
+                title: "TEENS",
+                description: "As cores na vida Real.",
+                link: "conteudo21/conteudo21.html"
+
+            }
+
+        ];
+
+        
+        // LIBERAR CARDS
+        
+        function showCards(quantity) {
+
+            // SALVA O NÍVEL ESCOLHIDO
+            localStorage.setItem(
+                "nivelSelecionado",
+                quantity
+            );
+
+            const container =
+                document.getElementById("cardsContainer");
+
+            const section =
+                document.getElementById("studySection");
+
+            // LIMPA CARDS
+            container.innerHTML = "";
+
+            // MOSTRA SEÇÃO
+            section.style.display = "block";
+
+            // CRIA CARDS
+            estudos.slice(0, quantity).forEach(estudo => {
+
+                const card = document.createElement("a");
+
+                // EVITA ERRO SE NÃO TIVER LINK
+                card.href = estudo.link || "#";
+
+                card.classList.add("card");
+
+                card.innerHTML = `
+
+                <div class="pantone-color">
+
+                    <div
+                        class="pantone-top"
+                        style="background:${estudo.color};"
+                    ></div>
+
+                    <div class="pantone-bottom">
+
+                        <span>PANTONE</span>
+
+                        <small>${estudo.color}</small>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        ${estudo.title}
+                    </h3>
+
+                    <p>
+                        ${estudo.description}
+                    </p>
+
+                </div>
+
+                <div class="btn">
+                    Estudar Agora →
+                </div>
+
+            `;
+
+                container.appendChild(card);
+
+            });
+
+            // ROLAGEM SUAVE
+            section.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+        // RESTAURA NÍVEL AO VOLTAR
+
+        window.onload = function () {
+
+            const nivelSalvo =
+                localStorage.getItem(
+                    "nivelSelecionado"
+                );
+
+            // SE EXISTIR NÍVEL SALVO
+            if (nivelSalvo) {
+
+                showCards(
+                    parseInt(nivelSalvo)
+                );
+
+            }
+
+        };
+
+    </script>
+
+</body>
+
+</html>
